@@ -7,10 +7,20 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 
 ## Usage
 
+* echo.`Style`.`Color`
+
+### Examples
+
 * echo.Cyan CyanExample
 * echo.ULCyan UnderLineCyanExample
 * echo.BoldCyan BoldCyanExample
 * echo.BoldULCyan BoldUnderLineCyanExample
+
+## Supported styles
+
+* Bold as `Bold`
+* Light as `Light`
+* Underline as `UL`
 
 ## Supported colors
 
