@@ -11,10 +11,11 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 
 ### Examples
 
-* echo.Cyan CyanExample
-* echo.ULCyan UnderLineCyanExample
-* echo.BoldCyan BoldCyanExample
-* echo.BoldULCyan BoldUnderLineCyanExample
+* echo.Cyan
+* echo.ULCyan
+* echo.LightCyan
+* echo.BoldCyan
+* echo.BoldULCyan
 
 ## Supported styles
 
