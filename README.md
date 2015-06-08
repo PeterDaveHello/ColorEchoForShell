@@ -16,3 +16,6 @@ Make echo colorful with easier method.
 
 * See [color table](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/master/table.txt)
 
+## Screenshot
+
+![Screenshot](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/master/Demo.png)
