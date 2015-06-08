@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 dist=dist/colorEcho.sh
+table=table.txt
 
 echo '#!/usr/bin/env bash' > $dist
 
-for color in `cat table.txt | awk '{print $1}'`
+for color in `cat $table | awk '{print $1}'`
 do
     for light in "" "Light"
     do
@@ -30,7 +31,7 @@ do
                     ulCode='4;'
                 fi
                 echo "{" >> $dist
-                echo '    echo -e "\e['"$ulCode$bCode$code"$(grep $color table.txt | awk '{print $2}')'m$@\e[m"' >> $dist
+                echo '    echo -e "\e['"$ulCode$bCode$code"$(grep $color $table | awk '{print $2}')'m$@\e[m"' >> $dist
                 echo "}" >> $dist
             done
         done
