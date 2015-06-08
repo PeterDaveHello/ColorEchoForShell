@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dist=colorEcho.sh
+dist=dist/colorEcho.sh
 
 echo '#!/usr/bin/env bash' > $dist
 
