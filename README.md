@@ -1,5 +1,5 @@
 # ColorEchoForShell
-Make echo colorful with easier method.
+Make echo colorful with easier method. In [bash](https://www.gnu.org/software/bash/) and [zsh](http://www.zsh.org/).
 
 ## Installation
 
