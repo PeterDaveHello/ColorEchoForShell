@@ -30,3 +30,7 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 ## Screenshot
 
 ![Screenshot](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/master/Demo.png)
+
+## Author
+
+[Peter Dave Hello](https://www.peterdavehello.org/), [@Twitter](https://twitter.com/PeterDaveHello), [@GitHub](https://github.com/PeterDaveHello)
