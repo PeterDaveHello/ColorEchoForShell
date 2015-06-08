@@ -30,7 +30,7 @@ do
                     ulCode='4;'
                 fi
                 echo "{" >> $dist
-                echo '    echo -e "\e['"$ulCode$bCode$code"$(grep $color table.txt | awk '{print $2}')'m$1\e[m"' >> $dist
+                echo '    echo -e "\e['"$ulCode$bCode$code"$(grep $color table.txt | awk '{print $2}')'m$@\e[m"' >> $dist
                 echo "}" >> $dist
             done
         done
