@@ -61,3 +61,5 @@ cat << LOLCAT >> "$newDist"
 LOLCAT
 
 done
+
+cp $dist.bash $dist.zsh
