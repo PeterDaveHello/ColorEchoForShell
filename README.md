@@ -29,6 +29,10 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 
 * See [color table](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/master/table.txt)
 
+## Notes
+
+* If you have [lolcat](https://github.com/busyloop/lolcat), you can also try `echo.Rainbow`.
+
 ## Screenshot
 
 ![Screenshot](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/master/Demo.png)

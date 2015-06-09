@@ -37,3 +37,14 @@ do
         done
     done
 done
+
+cat << LOLCAT >> "$dist"
+function echo.Rainbow()
+{
+    if [ "type lolcat" ]; then
+        echo "\$@" | lolcat
+    else
+        echo "\$@"
+    fi
+}
+LOLCAT

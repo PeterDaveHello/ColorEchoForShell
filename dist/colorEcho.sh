@@ -239,3 +239,11 @@ function echo.LightBoldULCyan()
 {
     echo -e "\e[4;1;96m$@\e[m"
 }
+function echo.Rainbow()
+{
+    if [ "type lolcat" ]; then
+        echo "$@" | lolcat
+    else
+        echo "$@"
+    fi
+}
