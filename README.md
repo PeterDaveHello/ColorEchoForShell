@@ -10,7 +10,7 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 
 ## Usage
 
-* echo.`Style``Color` (if you are using `sh`, there is no `.` dot symbol)
+* echo.`StyleColor` (if you are using `sh`, there is no `.` dot symbol)
 
 ### Examples
 
