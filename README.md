@@ -9,7 +9,7 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 
 ## Usage
 
-* echo.`Style`.`Color`
+* echo.`Style``Color`
 
 ### Examples
 
