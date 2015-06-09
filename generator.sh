@@ -49,8 +49,8 @@ do
         done
     done
 
+echo "$fn echo"$dot"Rainbow()" >> "$newDist"
 cat << LOLCAT >> "$newDist"
-$fn echo$dotRainbow()
 {
     if [ "type lolcat" ]; then
         echo "\$@" | lolcat
