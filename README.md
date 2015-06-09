@@ -33,6 +33,8 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 ## Notes
 
 * If you have [lolcat](https://github.com/busyloop/lolcat), you can also try `echo.Rainbow`.
+* If you are using Mac OS, please upgrade your bash first, you can use [Homebrew](http://brew.sh/) or [MacPorts](https://www.macports.org/), the origin bash is too old.
+* `sh` shell's color echo relys on external `/bin/echo`, it may not work properly with color under BSD and Mac OS.
 
 ## Screenshot
 
