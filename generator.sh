@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dist=dist/colorEcho.sh
+dist=dist/ColorEcho.sh
 table=table.txt
 
 echo '#!/usr/bin/env bash' > $dist

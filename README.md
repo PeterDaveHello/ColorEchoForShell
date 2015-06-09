@@ -3,9 +3,9 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 
 ## Installation
 
-* Download the script [dist/colorEcho.sh](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/master/dist/colorEcho.sh)
+* Download the script [dist/ColorEcho.sh](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/master/dist/ColorEcho.sh)
 * Add this line to your shell rc or run it directly:
-`. colorEcho.sh`
+`. ColorEcho.sh`
 
 ## Usage
 
