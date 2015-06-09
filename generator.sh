@@ -1,45 +1,56 @@
 #!/usr/bin/env bash
 
-dist=dist/ColorEcho.sh
+dist=dist/ColorEcho
 table=table.txt
 
-echo '#!/usr/bin/env bash' > $dist
-
-for color in `cat $table | awk '{print $1}'`
+for shell in sh bash
 do
-    for light in "" "Light"
+    newDist="$dist.$shell"
+    echo "#!/usr/bin/env $shell" > $newDist
+    for color in `cat $table | awk '{print $1}'`
     do
-        if [ "$light" = "" ]; then
-            code=3
-        else
-            code=9
-        fi
-        for bold in "" "Bold"
+        for light in "" "Light"
         do
-            if [ "$bold" = "" ]; then
-                bCode=
+            if [ "$light" = "" ]; then
+                code=3
             else
-                bCode='1;'
+                code=9
             fi
-            for underLine in "" "UL"
+            for bold in "" "Bold"
             do
-                echo "" >> $dist
-                echo "function echo.$light$bold$underLine$color()" >> $dist
-                if [ "$underLine" = "" ]; then
-                    ulCode=
+                if [ "$bold" = "" ]; then
+                    bCode=
                 else
-                    ulCode='4;'
+                    bCode='1;'
                 fi
-                echo "{" >> $dist
-                echo '    echo -e "\e['"$ulCode$bCode$code"$(grep $color $table | awk '{print $2}')'m$@\e[m"' >> $dist
-                echo "}" >> $dist
+                for underLine in "" "UL"
+                do
+                    echo "" >> $newDist
+                    if [ "$shell" = "bash" ]; then
+                        fn='function '
+                        dot='.'
+                        echo='echo'
+                    else
+                        fn=
+                        dot=
+                        echo='/bin/echo'
+                    fi
+                    echo "$fn echo$dot$light$bold$underLine$color()" >> $newDist
+                    if [ "$underLine" = "" ]; then
+                        ulCode=
+                    else
+                        ulCode='4;'
+                    fi
+                    echo "{" >> $newDist
+                    echo "    $echo"' -e "\e['"$ulCode$bCode$code"$(grep $color $table | awk '{print $2}')'m$@\e[m"' >> $newDist
+                    echo "}" >> $newDist
+                done
             done
         done
     done
-done
 
-cat << LOLCAT >> "$dist"
-function echo.Rainbow()
+cat << LOLCAT >> "$newDist"
+$fn echo$dotRainbow()
 {
     if [ "type lolcat" ]; then
         echo "\$@" | lolcat
@@ -48,3 +59,5 @@ function echo.Rainbow()
     fi
 }
 LOLCAT
+
+done
