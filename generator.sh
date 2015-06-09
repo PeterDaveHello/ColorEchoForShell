@@ -35,7 +35,7 @@ do
                         dot=
                         echo='/bin/echo'
                     fi
-                    echo "$fn echo$dot$light$bold$underLine$color()" >> $newDist
+                    echo "$fn""echo$dot$light$bold$underLine$color()" >> $newDist
                     if [ "$underLine" = "" ]; then
                         ulCode=
                     else
