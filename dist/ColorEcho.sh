@@ -1,245 +1,245 @@
 #!/usr/bin/env sh
 
- echoRed()
+echoRed()
 {
     /bin/echo -e "\e[31m$@\e[m"
 }
 
- echoULRed()
+echoULRed()
 {
     /bin/echo -e "\e[4;31m$@\e[m"
 }
 
- echoBoldRed()
+echoBoldRed()
 {
     /bin/echo -e "\e[1;31m$@\e[m"
 }
 
- echoBoldULRed()
+echoBoldULRed()
 {
     /bin/echo -e "\e[4;1;31m$@\e[m"
 }
 
- echoLightRed()
+echoLightRed()
 {
     /bin/echo -e "\e[91m$@\e[m"
 }
 
- echoLightULRed()
+echoLightULRed()
 {
     /bin/echo -e "\e[4;91m$@\e[m"
 }
 
- echoLightBoldRed()
+echoLightBoldRed()
 {
     /bin/echo -e "\e[1;91m$@\e[m"
 }
 
- echoLightBoldULRed()
+echoLightBoldULRed()
 {
     /bin/echo -e "\e[4;1;91m$@\e[m"
 }
 
- echoGreen()
+echoGreen()
 {
     /bin/echo -e "\e[32m$@\e[m"
 }
 
- echoULGreen()
+echoULGreen()
 {
     /bin/echo -e "\e[4;32m$@\e[m"
 }
 
- echoBoldGreen()
+echoBoldGreen()
 {
     /bin/echo -e "\e[1;32m$@\e[m"
 }
 
- echoBoldULGreen()
+echoBoldULGreen()
 {
     /bin/echo -e "\e[4;1;32m$@\e[m"
 }
 
- echoLightGreen()
+echoLightGreen()
 {
     /bin/echo -e "\e[92m$@\e[m"
 }
 
- echoLightULGreen()
+echoLightULGreen()
 {
     /bin/echo -e "\e[4;92m$@\e[m"
 }
 
- echoLightBoldGreen()
+echoLightBoldGreen()
 {
     /bin/echo -e "\e[1;92m$@\e[m"
 }
 
- echoLightBoldULGreen()
+echoLightBoldULGreen()
 {
     /bin/echo -e "\e[4;1;92m$@\e[m"
 }
 
- echoYellow()
+echoYellow()
 {
     /bin/echo -e "\e[33m$@\e[m"
 }
 
- echoULYellow()
+echoULYellow()
 {
     /bin/echo -e "\e[4;33m$@\e[m"
 }
 
- echoBoldYellow()
+echoBoldYellow()
 {
     /bin/echo -e "\e[1;33m$@\e[m"
 }
 
- echoBoldULYellow()
+echoBoldULYellow()
 {
     /bin/echo -e "\e[4;1;33m$@\e[m"
 }
 
- echoLightYellow()
+echoLightYellow()
 {
     /bin/echo -e "\e[93m$@\e[m"
 }
 
- echoLightULYellow()
+echoLightULYellow()
 {
     /bin/echo -e "\e[4;93m$@\e[m"
 }
 
- echoLightBoldYellow()
+echoLightBoldYellow()
 {
     /bin/echo -e "\e[1;93m$@\e[m"
 }
 
- echoLightBoldULYellow()
+echoLightBoldULYellow()
 {
     /bin/echo -e "\e[4;1;93m$@\e[m"
 }
 
- echoBlue()
+echoBlue()
 {
     /bin/echo -e "\e[34m$@\e[m"
 }
 
- echoULBlue()
+echoULBlue()
 {
     /bin/echo -e "\e[4;34m$@\e[m"
 }
 
- echoBoldBlue()
+echoBoldBlue()
 {
     /bin/echo -e "\e[1;34m$@\e[m"
 }
 
- echoBoldULBlue()
+echoBoldULBlue()
 {
     /bin/echo -e "\e[4;1;34m$@\e[m"
 }
 
- echoLightBlue()
+echoLightBlue()
 {
     /bin/echo -e "\e[94m$@\e[m"
 }
 
- echoLightULBlue()
+echoLightULBlue()
 {
     /bin/echo -e "\e[4;94m$@\e[m"
 }
 
- echoLightBoldBlue()
+echoLightBoldBlue()
 {
     /bin/echo -e "\e[1;94m$@\e[m"
 }
 
- echoLightBoldULBlue()
+echoLightBoldULBlue()
 {
     /bin/echo -e "\e[4;1;94m$@\e[m"
 }
 
- echoMagenta()
+echoMagenta()
 {
     /bin/echo -e "\e[35m$@\e[m"
 }
 
- echoULMagenta()
+echoULMagenta()
 {
     /bin/echo -e "\e[4;35m$@\e[m"
 }
 
- echoBoldMagenta()
+echoBoldMagenta()
 {
     /bin/echo -e "\e[1;35m$@\e[m"
 }
 
- echoBoldULMagenta()
+echoBoldULMagenta()
 {
     /bin/echo -e "\e[4;1;35m$@\e[m"
 }
 
- echoLightMagenta()
+echoLightMagenta()
 {
     /bin/echo -e "\e[95m$@\e[m"
 }
 
- echoLightULMagenta()
+echoLightULMagenta()
 {
     /bin/echo -e "\e[4;95m$@\e[m"
 }
 
- echoLightBoldMagenta()
+echoLightBoldMagenta()
 {
     /bin/echo -e "\e[1;95m$@\e[m"
 }
 
- echoLightBoldULMagenta()
+echoLightBoldULMagenta()
 {
     /bin/echo -e "\e[4;1;95m$@\e[m"
 }
 
- echoCyan()
+echoCyan()
 {
     /bin/echo -e "\e[36m$@\e[m"
 }
 
- echoULCyan()
+echoULCyan()
 {
     /bin/echo -e "\e[4;36m$@\e[m"
 }
 
- echoBoldCyan()
+echoBoldCyan()
 {
     /bin/echo -e "\e[1;36m$@\e[m"
 }
 
- echoBoldULCyan()
+echoBoldULCyan()
 {
     /bin/echo -e "\e[4;1;36m$@\e[m"
 }
 
- echoLightCyan()
+echoLightCyan()
 {
     /bin/echo -e "\e[96m$@\e[m"
 }
 
- echoLightULCyan()
+echoLightULCyan()
 {
     /bin/echo -e "\e[4;96m$@\e[m"
 }
 
- echoLightBoldCyan()
+echoLightBoldCyan()
 {
     /bin/echo -e "\e[1;96m$@\e[m"
 }
 
- echoLightBoldULCyan()
+echoLightBoldULCyan()
 {
     /bin/echo -e "\e[4;1;96m$@\e[m"
 }
- echo()
+ echoRainbow()
 {
     if [ "type lolcat" ]; then
         echo "$@" | lolcat
