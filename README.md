@@ -38,11 +38,11 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 
 ## Screenshot
 
-![Screenshot](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/master/Demo.png)
+![Screenshot](Demo.png)
 
 ## Demo
 
-![Demo](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/master/Demo.gif)
+![Demo](Demo.gif)
 
 ## Author
 
