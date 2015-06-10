@@ -3,12 +3,21 @@
 dist=dist/ColorEcho
 table=table.txt
 
-for shell in sh bash fish
+for shell in sh bash fish ksh
 do
     if [ "$shell" = "bash" ]; then
         fn='function '
         dot='.'
         echo='echo'
+        startSym='{'
+        endSym='}'
+        endIf='fi'
+        brackets=
+        para='@'
+    elif [ "$shell" = "ksh" ];then
+        fn='function '
+        dot=
+        echo='/bin/echo'
         startSym='{'
         endSym='}'
         endIf='fi'

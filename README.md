@@ -1,5 +1,5 @@
 # ColorEchoForShell
-Make echo colorful with easier method. In [bash](https://www.gnu.org/software/bash/), [sh](https://en.wikipedia.org/wiki/Bourne_shell), [fish](http://fishshell.com/) and [zsh](http://www.zsh.org/).
+Make echo colorful with easier method. In [bash](https://www.gnu.org/software/bash/), [sh](https://en.wikipedia.org/wiki/Bourne_shell), [fish](http://fishshell.com/), [ksh](http://www.kornshell.com/) and [zsh](http://www.zsh.org/).
 
 ## Installation
 
@@ -10,7 +10,7 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 
 ## Usage
 
-* echo.`StyleColor` (if you are using `sh`, there is no `.` dot symbol)
+* echo.`StyleColor` (if you are using `ksh`/`sh`, there is no `.` dot symbol)
 
 ### Examples
 
