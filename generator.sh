@@ -68,7 +68,7 @@ do
                 for underLine in "" "UL"
                 do
                     echo "" >> $newDist
-                     echo "$fn""echo$dot$light$bold$underLine$color$brackets" >> $newDist
+                    echo "$fn""echo$dot$light$bold$underLine$color$brackets" >> $newDist
                     if [ "$underLine" = "" ]; then
                         ulCode=
                     else
@@ -82,14 +82,14 @@ do
         done
     done
 
-fnName="$fn echo"$dot"Rainbow$brackets"
-if [ "$shell" = "fish" ]; then
-    ifCond="if type lolcat > /dev/null"
-else
-    ifCond='if [ "type lolcat" ]; then'
-fi
+    fnName="$fn echo"$dot"Rainbow$brackets"
+    if [ "$shell" = "fish" ]; then
+        ifCond="if type lolcat > /dev/null"
+    else
+        ifCond='if [ "type lolcat" ]; then'
+    fi
 
-cat << LOLCAT >> "$newDist"
+    cat << LOLCAT >> "$newDist"
 $fnName
 $startSym
     $ifCond
