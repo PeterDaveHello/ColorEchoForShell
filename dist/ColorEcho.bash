@@ -1,245 +1,245 @@
 #!/usr/bin/env bash
 
-function echo.Red()
+function echo.Red
 {
     echo -e "\e[31m$@\e[m"
 }
 
-function echo.ULRed()
+function echo.ULRed
 {
     echo -e "\e[4;31m$@\e[m"
 }
 
-function echo.BoldRed()
+function echo.BoldRed
 {
     echo -e "\e[1;31m$@\e[m"
 }
 
-function echo.BoldULRed()
+function echo.BoldULRed
 {
     echo -e "\e[4;1;31m$@\e[m"
 }
 
-function echo.LightRed()
+function echo.LightRed
 {
     echo -e "\e[91m$@\e[m"
 }
 
-function echo.LightULRed()
+function echo.LightULRed
 {
     echo -e "\e[4;91m$@\e[m"
 }
 
-function echo.LightBoldRed()
+function echo.LightBoldRed
 {
     echo -e "\e[1;91m$@\e[m"
 }
 
-function echo.LightBoldULRed()
+function echo.LightBoldULRed
 {
     echo -e "\e[4;1;91m$@\e[m"
 }
 
-function echo.Green()
+function echo.Green
 {
     echo -e "\e[32m$@\e[m"
 }
 
-function echo.ULGreen()
+function echo.ULGreen
 {
     echo -e "\e[4;32m$@\e[m"
 }
 
-function echo.BoldGreen()
+function echo.BoldGreen
 {
     echo -e "\e[1;32m$@\e[m"
 }
 
-function echo.BoldULGreen()
+function echo.BoldULGreen
 {
     echo -e "\e[4;1;32m$@\e[m"
 }
 
-function echo.LightGreen()
+function echo.LightGreen
 {
     echo -e "\e[92m$@\e[m"
 }
 
-function echo.LightULGreen()
+function echo.LightULGreen
 {
     echo -e "\e[4;92m$@\e[m"
 }
 
-function echo.LightBoldGreen()
+function echo.LightBoldGreen
 {
     echo -e "\e[1;92m$@\e[m"
 }
 
-function echo.LightBoldULGreen()
+function echo.LightBoldULGreen
 {
     echo -e "\e[4;1;92m$@\e[m"
 }
 
-function echo.Yellow()
+function echo.Yellow
 {
     echo -e "\e[33m$@\e[m"
 }
 
-function echo.ULYellow()
+function echo.ULYellow
 {
     echo -e "\e[4;33m$@\e[m"
 }
 
-function echo.BoldYellow()
+function echo.BoldYellow
 {
     echo -e "\e[1;33m$@\e[m"
 }
 
-function echo.BoldULYellow()
+function echo.BoldULYellow
 {
     echo -e "\e[4;1;33m$@\e[m"
 }
 
-function echo.LightYellow()
+function echo.LightYellow
 {
     echo -e "\e[93m$@\e[m"
 }
 
-function echo.LightULYellow()
+function echo.LightULYellow
 {
     echo -e "\e[4;93m$@\e[m"
 }
 
-function echo.LightBoldYellow()
+function echo.LightBoldYellow
 {
     echo -e "\e[1;93m$@\e[m"
 }
 
-function echo.LightBoldULYellow()
+function echo.LightBoldULYellow
 {
     echo -e "\e[4;1;93m$@\e[m"
 }
 
-function echo.Blue()
+function echo.Blue
 {
     echo -e "\e[34m$@\e[m"
 }
 
-function echo.ULBlue()
+function echo.ULBlue
 {
     echo -e "\e[4;34m$@\e[m"
 }
 
-function echo.BoldBlue()
+function echo.BoldBlue
 {
     echo -e "\e[1;34m$@\e[m"
 }
 
-function echo.BoldULBlue()
+function echo.BoldULBlue
 {
     echo -e "\e[4;1;34m$@\e[m"
 }
 
-function echo.LightBlue()
+function echo.LightBlue
 {
     echo -e "\e[94m$@\e[m"
 }
 
-function echo.LightULBlue()
+function echo.LightULBlue
 {
     echo -e "\e[4;94m$@\e[m"
 }
 
-function echo.LightBoldBlue()
+function echo.LightBoldBlue
 {
     echo -e "\e[1;94m$@\e[m"
 }
 
-function echo.LightBoldULBlue()
+function echo.LightBoldULBlue
 {
     echo -e "\e[4;1;94m$@\e[m"
 }
 
-function echo.Magenta()
+function echo.Magenta
 {
     echo -e "\e[35m$@\e[m"
 }
 
-function echo.ULMagenta()
+function echo.ULMagenta
 {
     echo -e "\e[4;35m$@\e[m"
 }
 
-function echo.BoldMagenta()
+function echo.BoldMagenta
 {
     echo -e "\e[1;35m$@\e[m"
 }
 
-function echo.BoldULMagenta()
+function echo.BoldULMagenta
 {
     echo -e "\e[4;1;35m$@\e[m"
 }
 
-function echo.LightMagenta()
+function echo.LightMagenta
 {
     echo -e "\e[95m$@\e[m"
 }
 
-function echo.LightULMagenta()
+function echo.LightULMagenta
 {
     echo -e "\e[4;95m$@\e[m"
 }
 
-function echo.LightBoldMagenta()
+function echo.LightBoldMagenta
 {
     echo -e "\e[1;95m$@\e[m"
 }
 
-function echo.LightBoldULMagenta()
+function echo.LightBoldULMagenta
 {
     echo -e "\e[4;1;95m$@\e[m"
 }
 
-function echo.Cyan()
+function echo.Cyan
 {
     echo -e "\e[36m$@\e[m"
 }
 
-function echo.ULCyan()
+function echo.ULCyan
 {
     echo -e "\e[4;36m$@\e[m"
 }
 
-function echo.BoldCyan()
+function echo.BoldCyan
 {
     echo -e "\e[1;36m$@\e[m"
 }
 
-function echo.BoldULCyan()
+function echo.BoldULCyan
 {
     echo -e "\e[4;1;36m$@\e[m"
 }
 
-function echo.LightCyan()
+function echo.LightCyan
 {
     echo -e "\e[96m$@\e[m"
 }
 
-function echo.LightULCyan()
+function echo.LightULCyan
 {
     echo -e "\e[4;96m$@\e[m"
 }
 
-function echo.LightBoldCyan()
+function echo.LightBoldCyan
 {
     echo -e "\e[1;96m$@\e[m"
 }
 
-function echo.LightBoldULCyan()
+function echo.LightBoldULCyan
 {
     echo -e "\e[4;1;96m$@\e[m"
 }
-function  echo.Rainbow()
+function  echo.Rainbow
 {
     if [ "type lolcat" ]; then
         echo "$@" | lolcat
