@@ -30,12 +30,14 @@ do
                         fn='function '
                         dot='.'
                         echo='echo'
+                        brackets=
                     else
                         fn=
                         dot=
                         echo='/bin/echo'
+                        brackets='()'
                     fi
-                    echo "$fn""echo$dot$light$bold$underLine$color()" >> $newDist
+                    echo "$fn""echo$dot$light$bold$underLine$color$brackets" >> $newDist
                     if [ "$underLine" = "" ]; then
                         ulCode=
                     else
@@ -49,7 +51,7 @@ do
         done
     done
 
-echo "$fn echo"$dot"Rainbow()" >> "$newDist"
+echo "$fn echo"$dot"Rainbow$brackets" >> "$newDist"
 cat << LOLCAT >> "$newDist"
 {
     if [ "type lolcat" ]; then
