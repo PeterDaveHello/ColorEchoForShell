@@ -5,7 +5,8 @@ table=table.txt
 
 for shell in sh bash fish ksh
 do
-    if [ "$shell" = "bash" ]; then
+    case $shell in
+    "bash")
         fn='function '
         dot='.'
         echo='echo'
@@ -14,7 +15,8 @@ do
         endIf='fi'
         brackets=
         para='@'
-    elif [ "$shell" = "ksh" ];then
+    ;;
+    "ksh")
         fn='function '
         dot=
         echo='/bin/echo'
@@ -23,7 +25,8 @@ do
         endIf='fi'
         brackets=
         para='@'
-    elif [ "$shell" = "fish" ];then
+    ;;
+    "fish")
         fn='function '
         dot='.'
         echo='echo'
@@ -32,7 +35,8 @@ do
         endIf='end'
         brackets=
         para='argv'
-    else
+    ;;
+    *)
         fn=
         dot=
         echo='/bin/echo'
@@ -41,7 +45,7 @@ do
         endIf='fi'
         brackets='()'
         para='@'
-    fi
+    esac
 
     newDist="$dist.$shell"
     echo "#!/usr/bin/env $shell" > $newDist
