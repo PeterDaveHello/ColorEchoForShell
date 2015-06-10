@@ -4,7 +4,7 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 ## Installation
 
 * Download the script, choice the once for your shell by its extension in the filename.
-- For example [dist/ColorEcho.bash](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/master/dist/ColorEcho.bash) for bash.
+- For example [dist/ColorEcho.bash](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/v0.0.4/dist/ColorEcho.bash) for bash.
 * Add a line to include the script in your shell rc or run it directly:
 `. ./ColorEcho.bash`
 
@@ -28,7 +28,7 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 
 ## Supported colors
 
-* See [color table](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/master/table.txt)
+* See [color table](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/v0.0.4/table.txt)
 
 ## Notes
 

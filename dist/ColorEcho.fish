@@ -1,5 +1,45 @@
 #!/usr/bin/env fish
 
+function echo.Black
+
+    echo -e "\e[30m$argv\e[m"
+end
+
+function echo.ULBlack
+
+    echo -e "\e[4;30m$argv\e[m"
+end
+
+function echo.BoldBlack
+
+    echo -e "\e[1;30m$argv\e[m"
+end
+
+function echo.BoldULBlack
+
+    echo -e "\e[4;1;30m$argv\e[m"
+end
+
+function echo.LightBlack
+
+    echo -e "\e[90m$argv\e[m"
+end
+
+function echo.LightULBlack
+
+    echo -e "\e[4;90m$argv\e[m"
+end
+
+function echo.LightBoldBlack
+
+    echo -e "\e[1;90m$argv\e[m"
+end
+
+function echo.LightBoldULBlack
+
+    echo -e "\e[4;1;90m$argv\e[m"
+end
+
 function echo.Red
 
     echo -e "\e[31m$argv\e[m"
@@ -238,6 +278,206 @@ end
 function echo.LightBoldULCyan
 
     echo -e "\e[4;1;96m$argv\e[m"
+end
+
+function echo.White
+
+    echo -e "\e[37m$argv\e[m"
+end
+
+function echo.ULWhite
+
+    echo -e "\e[4;37m$argv\e[m"
+end
+
+function echo.BoldWhite
+
+    echo -e "\e[1;37m$argv\e[m"
+end
+
+function echo.BoldULWhite
+
+    echo -e "\e[4;1;37m$argv\e[m"
+end
+
+function echo.LightWhite
+
+    echo -e "\e[97m$argv\e[m"
+end
+
+function echo.LightULWhite
+
+    echo -e "\e[4;97m$argv\e[m"
+end
+
+function echo.LightBoldWhite
+
+    echo -e "\e[1;97m$argv\e[m"
+end
+
+function echo.LightBoldULWhite
+
+    echo -e "\e[4;1;97m$argv\e[m"
+end
+
+function echo.Purple
+
+    echo -e "\e[3;38;5;93m$argv\e[m"
+end
+
+function echo.ULPurple
+
+    echo -e "\e[4;3;38;5;93m$argv\e[m"
+end
+
+function echo.BoldPurple
+
+    echo -e "\e[1;3;38;5;93m$argv\e[m"
+end
+
+function echo.BoldULPurple
+
+    echo -e "\e[4;1;3;38;5;93m$argv\e[m"
+end
+
+function echo.LightPurple
+
+    echo -e "\e[9;38;5;93m$argv\e[m"
+end
+
+function echo.LightULPurple
+
+    echo -e "\e[4;9;38;5;93m$argv\e[m"
+end
+
+function echo.LightBoldPurple
+
+    echo -e "\e[1;9;38;5;93m$argv\e[m"
+end
+
+function echo.LightBoldULPurple
+
+    echo -e "\e[4;1;9;38;5;93m$argv\e[m"
+end
+
+function echo.Orange
+
+    echo -e "\e[3;38;5;202m$argv\e[m"
+end
+
+function echo.ULOrange
+
+    echo -e "\e[4;3;38;5;202m$argv\e[m"
+end
+
+function echo.BoldOrange
+
+    echo -e "\e[1;3;38;5;202m$argv\e[m"
+end
+
+function echo.BoldULOrange
+
+    echo -e "\e[4;1;3;38;5;202m$argv\e[m"
+end
+
+function echo.LightOrange
+
+    echo -e "\e[9;38;5;202m$argv\e[m"
+end
+
+function echo.LightULOrange
+
+    echo -e "\e[4;9;38;5;202m$argv\e[m"
+end
+
+function echo.LightBoldOrange
+
+    echo -e "\e[1;9;38;5;202m$argv\e[m"
+end
+
+function echo.LightBoldULOrange
+
+    echo -e "\e[4;1;9;38;5;202m$argv\e[m"
+end
+
+function echo.Pink
+
+    echo -e "\e[3;38;5;206m$argv\e[m"
+end
+
+function echo.ULPink
+
+    echo -e "\e[4;3;38;5;206m$argv\e[m"
+end
+
+function echo.BoldPink
+
+    echo -e "\e[1;3;38;5;206m$argv\e[m"
+end
+
+function echo.BoldULPink
+
+    echo -e "\e[4;1;3;38;5;206m$argv\e[m"
+end
+
+function echo.LightPink
+
+    echo -e "\e[9;38;5;206m$argv\e[m"
+end
+
+function echo.LightULPink
+
+    echo -e "\e[4;9;38;5;206m$argv\e[m"
+end
+
+function echo.LightBoldPink
+
+    echo -e "\e[1;9;38;5;206m$argv\e[m"
+end
+
+function echo.LightBoldULPink
+
+    echo -e "\e[4;1;9;38;5;206m$argv\e[m"
+end
+
+function echo.Brown
+
+    echo -e "\e[3;38;5;52m$argv\e[m"
+end
+
+function echo.ULBrown
+
+    echo -e "\e[4;3;38;5;52m$argv\e[m"
+end
+
+function echo.BoldBrown
+
+    echo -e "\e[1;3;38;5;52m$argv\e[m"
+end
+
+function echo.BoldULBrown
+
+    echo -e "\e[4;1;3;38;5;52m$argv\e[m"
+end
+
+function echo.LightBrown
+
+    echo -e "\e[9;38;5;52m$argv\e[m"
+end
+
+function echo.LightULBrown
+
+    echo -e "\e[4;9;38;5;52m$argv\e[m"
+end
+
+function echo.LightBoldBrown
+
+    echo -e "\e[1;9;38;5;52m$argv\e[m"
+end
+
+function echo.LightBoldULBrown
+
+    echo -e "\e[4;1;9;38;5;52m$argv\e[m"
 end
 function  echo.Rainbow
 
