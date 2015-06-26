@@ -86,7 +86,7 @@ do
     if [ "$shell" = "fish" ]; then
         ifCond="if type lolcat > /dev/null"
     else
-        ifCond='if [ "type lolcat" ]; then'
+        ifCond='if [[ `type lolcat` != *"not found" ]]; then'
     fi
 
     cat << LOLCAT >> "$newDist"
