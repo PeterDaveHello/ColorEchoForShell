@@ -5,6 +5,7 @@ table=table.txt
 
 for shell in sh bash fish ksh
 do
+    #shell specify configs and tricks
     case $shell in
     "bash")
         fn='function '
@@ -51,6 +52,7 @@ do
     echo "#!/usr/bin/env $shell" > $newDist
     for color in `cat $table | awk '{print $1}'`
     do
+        #light or not
         for light in "" "Light"
         do
             if [ "$light" = "" ]; then
@@ -58,6 +60,7 @@ do
             else
                 code=9
             fi
+            #bold or not
             for bold in "" "Bold"
             do
                 if [ "$bold" = "" ]; then
@@ -65,6 +68,7 @@ do
                 else
                     bCode='1;'
                 fi
+                #underline or not
                 for underLine in "" "UL"
                 do
                     echo "" >> $newDist
@@ -74,6 +78,7 @@ do
                     else
                         ulCode='4;'
                     fi
+                    #write the code down
                     echo "$startSym" >> $newDist
                     echo "    $echo"' -e "\e['"$ulCode$bCode$code"$(grep $color $table | awk '{print $2}')'m$'$para'\e[m"' >> $newDist
                     echo "$endSym" >> $newDist
@@ -82,6 +87,7 @@ do
         done
     done
 
+    #rainbow output relys on lolcat
     fnName="$fn echo"$dot"Rainbow$brackets"
     if [ "$shell" = "fish" ]; then
         ifCond="if type lolcat > /dev/null"
@@ -102,4 +108,5 @@ LOLCAT
 
 done
 
+#zsh can use bash's script
 cp $dist.bash $dist.zsh
