@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -e
 shopt -s expand_aliases
 
 distFolder=dist
