@@ -2,15 +2,16 @@
 
 shopt -s expand_aliases
 
-dist=dist/ColorEcho
+distFolder=dist
+distPrefix=ColorEcho
 table="color table.txt"
 
-if [ ! -r "$dist".bash ]; then
+if [ ! -r "$distFolder/$distPrefix".bash ]; then
     alias echo.Green='echo'
     alias echo.BoldYellow='echo'
 else
     # use ColorEcho
-    . "$dist".bash
+    . "$distFolder/$distPrefix".bash
 fi
 
 echo.Green ColorEcho generator start!
@@ -61,7 +62,7 @@ do
         para='@'
     esac
 
-    newDist="$dist.$shell"
+    newDist="$distFolder/$distPrefix.$shell"
     echo "#!/usr/bin/env $shell" > $newDist
     for color in `cat "$table" | awk '{print $1}'`
     do
@@ -123,6 +124,6 @@ done
 
 #zsh can use bash's script
 echo.BoldYellow Generating ColorEcho for zsh shell ...
-cp $dist.bash $dist.zsh
+cp $distFolder/$distPrefix.bash $distFolder/$distPrefix.zsh
 
 echo.Green ColorEcho generator end!
