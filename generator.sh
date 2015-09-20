@@ -3,6 +3,9 @@
 dist=dist/ColorEcho
 table="color table.txt"
 
+# use colorEcho
+. "$dist".bash
+
 for shell in sh bash fish ksh
 do
     #shell specify configs and tricks
