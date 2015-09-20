@@ -3,12 +3,12 @@
 dist=dist/ColorEcho
 table="color table.txt"
 
-# use colorEcho
+# use ColorEcho
 . "$dist".bash
 
 for shell in sh bash fish ksh
 do
-    echo.BoldYellow Generating colorEcho for $shell shell ...
+    echo.BoldYellow Generating ColorEcho for $shell shell ...
     #shell specify configs and tricks
     case $shell in
     "bash")
@@ -113,5 +113,5 @@ LOLCAT
 done
 
 #zsh can use bash's script
-echo.BoldYellow Generating colorEcho for zsh shell ...
+echo.BoldYellow Generating ColorEcho for zsh shell ...
 cp $dist.bash $dist.zsh
