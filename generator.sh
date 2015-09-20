@@ -72,6 +72,12 @@ do
     esac
 
     newDist="$distFolder/$distPrefix.$shell"
+    touch $newDist
+    if [ ! -w "$newDist" ]; then
+        echo.Red dist file - "$newDist" is not writable, exit ...
+        exit 1
+    fi
+
     echo "#!/usr/bin/env $shell" > $newDist
     for color in `cat "$table" | awk '{print $1}'`
     do
