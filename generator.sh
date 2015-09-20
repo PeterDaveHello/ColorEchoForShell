@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
 
+shopt -s expand_aliases
+
 dist=dist/ColorEcho
 table="color table.txt"
 
-# use ColorEcho
-. "$dist".bash
+if [ ! -r "$dist".bash ]; then
+    alias echo.Green='echo'
+    alias echo.BoldYellow='echo'
+else
+    # use ColorEcho
+    . "$dist".bash
+fi
 
 echo.Green ColorEcho generator start!
 
