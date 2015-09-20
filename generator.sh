@@ -7,6 +7,7 @@ distPrefix=ColorEcho
 table="color table.txt"
 
 if [ ! -r "$distFolder/$distPrefix".bash ]; then
+    echo "$distFolder$distPrefix".bash is not readable, fallback to use origin echo
     alias echo.Green='echo'
     alias echo.BoldYellow='echo'
 else
