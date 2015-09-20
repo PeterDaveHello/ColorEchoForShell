@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 dist=dist/ColorEcho
-table=table.txt
+table="color table.txt"
 
 for shell in sh bash fish ksh
 do
@@ -50,7 +50,7 @@ do
 
     newDist="$dist.$shell"
     echo "#!/usr/bin/env $shell" > $newDist
-    for color in `cat $table | awk '{print $1}'`
+    for color in `cat "$table" | awk '{print $1}'`
     do
         #light or not
         for light in "" "Light"
@@ -80,7 +80,7 @@ do
                     fi
                     #write the code down
                     echo "$startSym" >> $newDist
-                    echo "    $echo"' -e "\e['"$ulCode$bCode$code"$(grep $color $table | awk '{print $2}')'m$'$para'\e[m"' >> $newDist
+                    echo "    $echo"' -e "\e['"$ulCode$bCode$code"$(grep $color "$table" | awk '{print $2}')'m$'$para'\e[m"' >> $newDist
                     echo "$endSym" >> $newDist
                 done
             done
