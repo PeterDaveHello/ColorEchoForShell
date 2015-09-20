@@ -25,12 +25,12 @@ fi
 
 echo.Green ColorEcho generator start!
 
-for shell in sh bash fish ksh
+for shell in sh bash fish ksh zsh
 do
     echo.BoldYellow Generating ColorEcho for $shell shell ...
     #shell specify configs and tricks
     case $shell in
-    "bash")
+    "bash" | "zsh")
         fn='function '
         dot='.'
         echo='echo'
@@ -130,9 +130,5 @@ $endSym
 LOLCAT
 
 done
-
-#zsh can use bash's script
-echo.BoldYellow Generating ColorEcho for zsh shell ...
-cp $distFolder/$distPrefix.bash $distFolder/$distPrefix.zsh
 
 echo.Green ColorEcho generator end!
