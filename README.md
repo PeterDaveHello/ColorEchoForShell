@@ -20,6 +20,14 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 * echo.BoldCyan
 * echo.BoldULCyan
 
+## Supported shells
+
+* [Bourne shell (sh)](https://en.wikipedia.org/wiki/Bourne_shell)
+* [Bourne-Again shell (bash)](https://www.gnu.org/software/bash/)
+* [Z shell (Zsh)](http://zsh.sourceforge.net/)
+* [Korn shell (ksh)](http://www.kornshell.org/)
+* [Friendly interactive shell (fish)](http://fishshell.com/)
+
 ## Supported styles
 
 * Bold as `Bold`
