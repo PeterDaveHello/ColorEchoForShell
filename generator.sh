@@ -6,6 +6,8 @@ table="color table.txt"
 # use ColorEcho
 . "$dist".bash
 
+echo.Green ColorEcho generator start!
+
 for shell in sh bash fish ksh
 do
     echo.BoldYellow Generating ColorEcho for $shell shell ...
@@ -115,3 +117,5 @@ done
 #zsh can use bash's script
 echo.BoldYellow Generating ColorEcho for zsh shell ...
 cp $dist.bash $dist.zsh
+
+echo.Green ColorEcho generator end!
