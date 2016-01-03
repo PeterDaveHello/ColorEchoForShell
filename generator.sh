@@ -135,6 +135,15 @@ $startSym
 $endSym
 LOLCAT
 
+    #echo.Reset to remove color code on output
+    fnName="$fn echo"$dot"Reset$brackets"
+    cat << LOLCAT >> "$newDist"
+$fnName
+$startSym
+    echo "\$$para" | tr -d '[:cntrl:]' | sed -E "s/\[((;)?[0-9]{1,3}){0,3}m//g"
+$endSym
+LOLCAT
+
 done
 
 echo.Green ColorEcho generator end!
