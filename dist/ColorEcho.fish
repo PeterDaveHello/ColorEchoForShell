@@ -487,3 +487,7 @@ function  echo.Rainbow
         echo "$argv"
     end
 end
+function  echo.Reset
+
+    echo "$argv" | tr -d '[:cntrl:]' | sed -E "s/\[((;)?[0-9]{1,3}){0,3}m//g"
+end

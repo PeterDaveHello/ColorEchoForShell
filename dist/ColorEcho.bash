@@ -487,3 +487,7 @@ function  echo.Rainbow
         echo "$@"
     fi
 }
+function  echo.Reset
+{
+    echo "$@" | tr -d '[:cntrl:]' | sed -E "s/\[((;)?[0-9]{1,3}){0,3}m//g"
+}
