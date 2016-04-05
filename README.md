@@ -65,6 +65,10 @@ Make echo colorful with easier method. In [bash](https://www.gnu.org/software/ba
 
 ![Demo](Demo.gif)
 
+## License
+
+GPL-2.0 (GNU GENERAL PUBLIC LICENSE Version 2)
+
 ## Author
 
 [Peter Dave Hello](https://www.peterdavehello.org/), [@Twitter](https://twitter.com/PeterDaveHello), [@GitHub](https://github.com/PeterDaveHello)
