@@ -3,33 +3,36 @@
 set -e
 shopt -s expand_aliases
 
-distFolder=dist
-distPrefix=ColorEcho
+distFolder="dist"
+distPrefix="ColorEcho"
 table="color table.txt"
 
-if [ ! -r "$distFolder/$distPrefix".bash ] || [ ! -s "$distFolder/$distPrefix".bash ]; then
-    echo "$distFolder$distPrefix".bash is not readable, fallback to use origin echo
+if [ ! -r "${distFolder}/${distPrefix}.bash" ] || [ ! -s "${distFolder}/${distPrefix}.bash" ]; then
+    echo "${distFolder}${distPrefix}.bash" is not readable, fallback to use origin echo
     alias echo.Red='echo'
     alias echo.Green='echo'
     alias echo.BoldYellow='echo'
 else
     # use ColorEcho
-    . "$distFolder/$distPrefix".bash
+    . "${distFolder}/${distPrefix}.bash"
+    command -v echo.Red &> /dev/null || alias echo.Red='echo'
+    command -v echo.Green &> /dev/null || alias echo.Green='echo'
+    command -v echo.BoldYellow &> /dev/null || alias echo.BoldYellow='echo'
 fi
 
 mkdir -p $distFolder
 if [ ! -w "$distFolder" ]; then
-    echo.Red Dist folder - $distFolder is not writable, exit ...
+    echo.Red "Dist folder - \"$distFolder\" is not writable, exit ..."
     exit 1;
 fi
 
-echo.Green ColorEcho generator start!
+echo.Green "ColorEcho generator start!"
 
 for shell in sh bash fish ksh zsh
 do
-    echo.BoldYellow Generating ColorEcho for $shell shell ...
+    echo.BoldYellow "Generating ColorEcho for $shell shell ..."
     #shell specify configs and tricks
-    case $shell in
+    case "$shell" in
     "bash" | "zsh")
         fn='function '
         dot='.'
@@ -71,15 +74,15 @@ do
         para='@'
     esac
 
-    newDist="$distFolder/$distPrefix.$shell"
-    touch $newDist
+    newDist="${distFolder}/${distPrefix}.${shell}"
+    touch "$newDist"
     if [ ! -w "$newDist" ]; then
-        echo.Red dist file - "$newDist" is not writable, exit ...
+        echo.Red "dist file - \"$newDist\" is not writable, exit ..."
         exit 1
     fi
 
-    echo "#!/usr/bin/env $shell" > $newDist
-    for color in `cat "$table" | awk '{print $1}'`
+    echo "#!/usr/bin/env $shell" > "$newDist"
+    for color in $(awk '{print $1}' "$table")
     do
         #light or not
         for light in "" "Light"
@@ -100,24 +103,26 @@ do
                 #underline or not
                 for underLine in "" "UL"
                 do
-                    echo "" >> $newDist
-                    echo "$fn""echo$dot$light$bold$underLine$color$brackets" >> $newDist
-                    if [ "$underLine" = "" ]; then
-                        ulCode=
-                    else
-                        ulCode='4;'
-                    fi
-                    #write the code down
-                    echo "$startSym" >> $newDist
-                    echo "    $echo"' -e "\e['"$ulCode$bCode$code"$(grep $color "$table" | awk '{print $2}')'m$'$para'\e[m"' >> $newDist
-                    echo "$endSym" >> $newDist
+                    {
+                        echo ""
+                        echo "${fn}echo${dot}${light}${bold}${underLine}${color}${brackets}"
+                        if [ "$underLine" = "" ]; then
+                            ulCode=
+                        else
+                            ulCode='4;'
+                        fi
+                        #write the code down
+                        echo "$startSym"
+                        echo "    $echo"' -e "\e['"${ulCode}${bCode}${code}"$(grep $color "$table" | awk '{print $2}')'m$'$para'\e[m"'
+                        echo "$endSym"
+                    } >> "$newDist"
                 done
             done
         done
     done
 
     #rainbow output relys on lolcat
-    fnName="$fn echo"$dot"Rainbow$brackets"
+    fnName="${fn} echo${dot}Rainbow${brackets}"
     if [ "$shell" = "fish" ]; then
         ifCond="if type lolcat > /dev/null"
     else
@@ -136,7 +141,7 @@ $endSym
 LOLCAT
 
     #echo.Reset to remove color code on output
-    fnName="$fn echo"$dot"Reset$brackets"
+    fnName="${fn} echo${dot}Reset${brackets}"
     cat << LOLCAT >> "$newDist"
 $fnName
 $startSym
@@ -146,4 +151,4 @@ LOLCAT
 
 done
 
-echo.Green ColorEcho generator end!
+echo.Green "ColorEcho generator end!"
