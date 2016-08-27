@@ -9,24 +9,24 @@ table="color table.txt"
 
 if [ ! -r "${distFolder}/${distPrefix}.bash" ] || [ ! -s "${distFolder}/${distPrefix}.bash" ]; then
     echo "${distFolder}${distPrefix}.bash" is not readable, fallback to use origin echo
-    alias echo.Red='echo'
-    alias echo.Green='echo'
+    alias echo.BoldRed='echo'
+    alias echo.BoldGreen='echo'
     alias echo.BoldYellow='echo'
 else
     # use ColorEcho
     . "${distFolder}/${distPrefix}.bash"
-    command -v echo.Red &> /dev/null || alias echo.Red='echo'
-    command -v echo.Green &> /dev/null || alias echo.Green='echo'
+    command -v echo.BoldRed &> /dev/null || alias echo.BoldRed='echo'
+    command -v echo.BoldGreen &> /dev/null || alias echo.BoldGreen='echo'
     command -v echo.BoldYellow &> /dev/null || alias echo.BoldYellow='echo'
 fi
 
 mkdir -p $distFolder
 if [ ! -w "$distFolder" ]; then
-    echo.Red "Dist folder - \"$distFolder\" is not writable, exit ..."
+    echo.BoldRed "Dist folder - \"$distFolder\" is not writable, exit ..."
     exit 1;
 fi
 
-echo.Green "ColorEcho generator start!"
+echo.BoldGreen "ColorEcho generator start!"
 
 for shell in sh bash fish ksh zsh
 do
@@ -77,7 +77,7 @@ do
     newDist="${distFolder}/${distPrefix}.${shell}"
     touch "$newDist"
     if [ ! -w "$newDist" ]; then
-        echo.Red "dist file - \"$newDist\" is not writable, exit ..."
+        echo.BoldRed "dist file - \"$newDist\" is not writable, exit ..."
         exit 1
     fi
 
@@ -151,4 +151,4 @@ LOLCAT
 
 done
 
-echo.Green "ColorEcho generator end!"
+echo.BoldGreen "ColorEcho generator end!"
