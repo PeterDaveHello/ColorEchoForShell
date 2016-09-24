@@ -157,12 +157,12 @@ LOLCAT
 
     #echo.Reset to remove color code on output
     fnName="${fn} echo${dot}Reset${brackets}"
-    cat << LOLCAT >> "$newDist"
+    cat << RESET >> "$newDist"
 $fnName
 $startSym
     echo "\$$para" | tr -d '[:cntrl:]' | sed -E "s/\[((;)?[0-9]{1,3}){0,3}m//g"
 $endSym
-LOLCAT
+RESET
 
 done
 
