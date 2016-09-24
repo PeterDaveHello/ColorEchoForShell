@@ -66,7 +66,7 @@ do
     "sh")
         fn=
         dot=
-        echo='/bin/echo'
+        echo='$ECHO'
         startSym='{'
         endSym='}'
         endIf='fi'
@@ -82,6 +82,15 @@ do
     fi
 
     echo "#!/usr/bin/env $shell" > "$newDist"
+    if [ "$shell" = "sh" ]; then
+        cat << SH_ECHO >> "$newDist"
+if [ "\`uname\`" = "FreeBSD" ]; then
+    ECHO="echo"
+else
+    ECHO="/bin/echo"
+fi
+SH_ECHO
+    fi
     for color in $(awk '{print $1}' "$table")
     do
         #light or not
