@@ -123,11 +123,17 @@ do
 
     #rainbow output relys on lolcat
     fnName="${fn} echo${dot}Rainbow${brackets}"
-    if [ "$shell" = "fish" ]; then
-        ifCond="if type lolcat > /dev/null"
-    else
-        ifCond='if [ "type lolcat" ]; then'
-    fi
+    case "$shell" in
+        "fish")
+            ifCond="if type lolcat > /dev/null"
+        ;;
+        "ksh")
+            ifCond='if type lolcat 2> /dev/null >&2; then'
+        ;;
+        *)
+            ifCond='if type lolcat > /dev/null 2>&1; then'
+        ;;
+    esac
 
     cat << LOLCAT >> "$newDist"
 $fnName
