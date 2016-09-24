@@ -481,7 +481,7 @@ echoLightBoldULBrown()
 }
  echoRainbow()
 {
-    if [ "type lolcat" ]; then
+    if type lolcat > /dev/null 2>&1; then
         echo "$@" | lolcat
     else
         echo "$@"
