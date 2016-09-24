@@ -63,7 +63,7 @@ do
         brackets=
         para='argv'
     ;;
-    *)
+    "sh")
         fn=
         dot=
         echo='/bin/echo'
