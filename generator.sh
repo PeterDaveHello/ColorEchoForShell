@@ -84,7 +84,7 @@ do
     echo "#!/usr/bin/env $shell" > "$newDist"
     if [ "$shell" = "sh" ]; then
         cat << SH_ECHO >> "$newDist"
-if [ "\`uname\`" = "FreeBSD" ]; then
+        if [ "\$(uname)" = "FreeBSD" ]; then
     ECHO="echo"
 else
     ECHO="/bin/echo"
