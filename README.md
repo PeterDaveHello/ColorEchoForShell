@@ -1,6 +1,8 @@
 # ColorEchoForShell
 Make echo colorful with easier method. In [bash](https://www.gnu.org/software/bash/), [sh](https://en.wikipedia.org/wiki/Bourne_shell), [fish](http://fishshell.com/), [ksh](http://www.kornshell.com/) and [zsh](http://www.zsh.org/).
 
+Please note that [certain colors](https://github.com/PeterDaveHello/ColorEchoForShell/blob/master/color%20table.txt#L9-L12) will really depond on the environment, my demo is under a terminal called [Terminator](http://gnometerminator.blogspot.com/p/introduction.html), you can simply install it via apt, yum, pkg or other package manager. Actually, all the colors display depend on the environment setting, but I just name/define name by the most common cases I know by far.
+
 ## MENU
 * [`MENU`](#menu)
 * [`Installation`](#installation)
