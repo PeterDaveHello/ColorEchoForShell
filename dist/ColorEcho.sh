@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-if [ "`uname`" = "FreeBSD" ]; then
+        if [ "$(uname)" = "FreeBSD" ]; then
     ECHO="echo"
 else
     ECHO="/bin/echo"
