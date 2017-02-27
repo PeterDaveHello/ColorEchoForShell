@@ -5,3 +5,8 @@ pipeline:
       - . dist/ColorEcho.sh && for x in $(grep -E "echo[a-zA-Z]+()" dist/ColorEcho.sh | sed 's/()//g'); do $x "$x" ; done
     when:
       event: [ push, pull_request ]
+  review:
+    image: peterdavehello/drone-github-status-report-bot:latest
+    when:
+      event: [ pull_request ]
+
