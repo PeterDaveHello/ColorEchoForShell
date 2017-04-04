@@ -30,6 +30,7 @@ echo.BoldGreen "ColorEcho generator start!"
 
 for shell in sh bash fish ksh zsh
 do
+    {
     echo.BoldYellow "Generating ColorEcho for $shell shell ..."
     #shell specify configs and tricks
     case "$shell" in
@@ -163,7 +164,9 @@ $startSym
     echo "\$$para" | tr -d '[:cntrl:]' | sed -E "s/\[((;)?[0-9]{1,3}){0,3}m//g"
 $endSym
 RESET
-
+    } &
 done
+
+wait
 
 echo.BoldGreen "ColorEcho generator end!"
