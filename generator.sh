@@ -123,7 +123,7 @@ SH_ECHO
                         fi
                         #write the code down
                         echo "$startSym"
-                        echo "    $echo"' -e "\e['"${ulCode}${bCode}${code}"$(grep $color "$table" | awk '{print $2}')'m$'$para'\e[m"'
+                        echo "    $echo"' -e "\033['"${ulCode}${bCode}${code}"$(grep $color "$table" | awk '{print $2}')'m$'$para'\033[m"'
                         echo "$endSym"
                     } >> "$newDist"
                 done
