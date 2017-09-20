@@ -14,6 +14,7 @@ if [ ! -r "${distFolder}/${distPrefix}.bash" ] || [ ! -s "${distFolder}/${distPr
     alias echo.BoldYellow='echo'
 else
     # use ColorEcho
+    # shellcheck source=dist/ColorEcho.bash
     . "${distFolder}/${distPrefix}.bash"
     command -v echo.BoldRed &> /dev/null || alias echo.BoldRed='echo'
     command -v echo.BoldGreen &> /dev/null || alias echo.BoldGreen='echo'
@@ -42,7 +43,7 @@ do
         endSym='}'
         endIf='fi'
         brackets=
-        para='@'
+        para='*'
     ;;
     "ksh")
         fn='function '
@@ -52,7 +53,7 @@ do
         endSym='}'
         endIf='fi'
         brackets=
-        para='@'
+        para='*'
     ;;
     "fish")
         fn='function '
@@ -67,12 +68,13 @@ do
     "sh")
         fn=
         dot=
+        # shellcheck disable=SC2016
         echo='$ECHO'
         startSym='{'
         endSym='}'
         endIf='fi'
         brackets='()'
-        para='@'
+        para='*'
     esac
 
     newDist="${distFolder}/${distPrefix}.${shell}"
@@ -92,7 +94,7 @@ else
 fi
 SH_ECHO
     fi
-    for color in $(awk '{print $1}' "$table")
+    awk '{print $1}' "$table" | while IFS= read -r color
     do
         #light or not
         for light in "" "Light"
@@ -123,7 +125,7 @@ SH_ECHO
                         fi
                         #write the code down
                         echo "$startSym"
-                        echo "    $echo"' -e "\033['"${ulCode}${bCode}${code}"$(grep $color "$table" | awk '{print $2}')'m$'$para'\033[m"'
+                        echo "    $echo"' -e "\033['"${ulCode}${bCode}${code}""$(grep "$color" "$table" | awk '{print $2}')"'m$'"$para"'\033[m"'
                         echo "$endSym"
                     } >> "$newDist"
                 done
@@ -135,13 +137,13 @@ SH_ECHO
     fnName="${fn} echo${dot}Rainbow${brackets}"
     case "$shell" in
         "fish")
-            ifCond="if type lolcat > /dev/null"
+            ifCond="if which lolcat > /dev/null"
         ;;
         "ksh")
-            ifCond='if type lolcat 2> /dev/null >&2; then'
+            ifCond='if which lolcat 2> /dev/null >&2; then'
         ;;
         *)
-            ifCond='if type lolcat > /dev/null 2>&1; then'
+            ifCond='if which lolcat > /dev/null 2>&1; then'
         ;;
     esac
 
