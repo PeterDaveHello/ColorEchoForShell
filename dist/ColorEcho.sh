@@ -7,492 +7,492 @@ fi
 
 echoBlack()
 {
-    $ECHO -e "\e[30m$@\e[m"
+    $ECHO -e "\033[30m$*\033[m"
 }
 
 echoULBlack()
 {
-    $ECHO -e "\e[4;30m$@\e[m"
+    $ECHO -e "\033[4;30m$*\033[m"
 }
 
 echoBoldBlack()
 {
-    $ECHO -e "\e[1;30m$@\e[m"
+    $ECHO -e "\033[1;30m$*\033[m"
 }
 
 echoBoldULBlack()
 {
-    $ECHO -e "\e[4;1;30m$@\e[m"
+    $ECHO -e "\033[4;1;30m$*\033[m"
 }
 
 echoLightBlack()
 {
-    $ECHO -e "\e[90m$@\e[m"
+    $ECHO -e "\033[90m$*\033[m"
 }
 
 echoLightULBlack()
 {
-    $ECHO -e "\e[4;90m$@\e[m"
+    $ECHO -e "\033[4;90m$*\033[m"
 }
 
 echoLightBoldBlack()
 {
-    $ECHO -e "\e[1;90m$@\e[m"
+    $ECHO -e "\033[1;90m$*\033[m"
 }
 
 echoLightBoldULBlack()
 {
-    $ECHO -e "\e[4;1;90m$@\e[m"
+    $ECHO -e "\033[4;1;90m$*\033[m"
 }
 
 echoRed()
 {
-    $ECHO -e "\e[31m$@\e[m"
+    $ECHO -e "\033[31m$*\033[m"
 }
 
 echoULRed()
 {
-    $ECHO -e "\e[4;31m$@\e[m"
+    $ECHO -e "\033[4;31m$*\033[m"
 }
 
 echoBoldRed()
 {
-    $ECHO -e "\e[1;31m$@\e[m"
+    $ECHO -e "\033[1;31m$*\033[m"
 }
 
 echoBoldULRed()
 {
-    $ECHO -e "\e[4;1;31m$@\e[m"
+    $ECHO -e "\033[4;1;31m$*\033[m"
 }
 
 echoLightRed()
 {
-    $ECHO -e "\e[91m$@\e[m"
+    $ECHO -e "\033[91m$*\033[m"
 }
 
 echoLightULRed()
 {
-    $ECHO -e "\e[4;91m$@\e[m"
+    $ECHO -e "\033[4;91m$*\033[m"
 }
 
 echoLightBoldRed()
 {
-    $ECHO -e "\e[1;91m$@\e[m"
+    $ECHO -e "\033[1;91m$*\033[m"
 }
 
 echoLightBoldULRed()
 {
-    $ECHO -e "\e[4;1;91m$@\e[m"
+    $ECHO -e "\033[4;1;91m$*\033[m"
 }
 
 echoGreen()
 {
-    $ECHO -e "\e[32m$@\e[m"
+    $ECHO -e "\033[32m$*\033[m"
 }
 
 echoULGreen()
 {
-    $ECHO -e "\e[4;32m$@\e[m"
+    $ECHO -e "\033[4;32m$*\033[m"
 }
 
 echoBoldGreen()
 {
-    $ECHO -e "\e[1;32m$@\e[m"
+    $ECHO -e "\033[1;32m$*\033[m"
 }
 
 echoBoldULGreen()
 {
-    $ECHO -e "\e[4;1;32m$@\e[m"
+    $ECHO -e "\033[4;1;32m$*\033[m"
 }
 
 echoLightGreen()
 {
-    $ECHO -e "\e[92m$@\e[m"
+    $ECHO -e "\033[92m$*\033[m"
 }
 
 echoLightULGreen()
 {
-    $ECHO -e "\e[4;92m$@\e[m"
+    $ECHO -e "\033[4;92m$*\033[m"
 }
 
 echoLightBoldGreen()
 {
-    $ECHO -e "\e[1;92m$@\e[m"
+    $ECHO -e "\033[1;92m$*\033[m"
 }
 
 echoLightBoldULGreen()
 {
-    $ECHO -e "\e[4;1;92m$@\e[m"
+    $ECHO -e "\033[4;1;92m$*\033[m"
 }
 
 echoYellow()
 {
-    $ECHO -e "\e[33m$@\e[m"
+    $ECHO -e "\033[33m$*\033[m"
 }
 
 echoULYellow()
 {
-    $ECHO -e "\e[4;33m$@\e[m"
+    $ECHO -e "\033[4;33m$*\033[m"
 }
 
 echoBoldYellow()
 {
-    $ECHO -e "\e[1;33m$@\e[m"
+    $ECHO -e "\033[1;33m$*\033[m"
 }
 
 echoBoldULYellow()
 {
-    $ECHO -e "\e[4;1;33m$@\e[m"
+    $ECHO -e "\033[4;1;33m$*\033[m"
 }
 
 echoLightYellow()
 {
-    $ECHO -e "\e[93m$@\e[m"
+    $ECHO -e "\033[93m$*\033[m"
 }
 
 echoLightULYellow()
 {
-    $ECHO -e "\e[4;93m$@\e[m"
+    $ECHO -e "\033[4;93m$*\033[m"
 }
 
 echoLightBoldYellow()
 {
-    $ECHO -e "\e[1;93m$@\e[m"
+    $ECHO -e "\033[1;93m$*\033[m"
 }
 
 echoLightBoldULYellow()
 {
-    $ECHO -e "\e[4;1;93m$@\e[m"
+    $ECHO -e "\033[4;1;93m$*\033[m"
 }
 
 echoBlue()
 {
-    $ECHO -e "\e[34m$@\e[m"
+    $ECHO -e "\033[34m$*\033[m"
 }
 
 echoULBlue()
 {
-    $ECHO -e "\e[4;34m$@\e[m"
+    $ECHO -e "\033[4;34m$*\033[m"
 }
 
 echoBoldBlue()
 {
-    $ECHO -e "\e[1;34m$@\e[m"
+    $ECHO -e "\033[1;34m$*\033[m"
 }
 
 echoBoldULBlue()
 {
-    $ECHO -e "\e[4;1;34m$@\e[m"
+    $ECHO -e "\033[4;1;34m$*\033[m"
 }
 
 echoLightBlue()
 {
-    $ECHO -e "\e[94m$@\e[m"
+    $ECHO -e "\033[94m$*\033[m"
 }
 
 echoLightULBlue()
 {
-    $ECHO -e "\e[4;94m$@\e[m"
+    $ECHO -e "\033[4;94m$*\033[m"
 }
 
 echoLightBoldBlue()
 {
-    $ECHO -e "\e[1;94m$@\e[m"
+    $ECHO -e "\033[1;94m$*\033[m"
 }
 
 echoLightBoldULBlue()
 {
-    $ECHO -e "\e[4;1;94m$@\e[m"
+    $ECHO -e "\033[4;1;94m$*\033[m"
 }
 
 echoMagenta()
 {
-    $ECHO -e "\e[35m$@\e[m"
+    $ECHO -e "\033[35m$*\033[m"
 }
 
 echoULMagenta()
 {
-    $ECHO -e "\e[4;35m$@\e[m"
+    $ECHO -e "\033[4;35m$*\033[m"
 }
 
 echoBoldMagenta()
 {
-    $ECHO -e "\e[1;35m$@\e[m"
+    $ECHO -e "\033[1;35m$*\033[m"
 }
 
 echoBoldULMagenta()
 {
-    $ECHO -e "\e[4;1;35m$@\e[m"
+    $ECHO -e "\033[4;1;35m$*\033[m"
 }
 
 echoLightMagenta()
 {
-    $ECHO -e "\e[95m$@\e[m"
+    $ECHO -e "\033[95m$*\033[m"
 }
 
 echoLightULMagenta()
 {
-    $ECHO -e "\e[4;95m$@\e[m"
+    $ECHO -e "\033[4;95m$*\033[m"
 }
 
 echoLightBoldMagenta()
 {
-    $ECHO -e "\e[1;95m$@\e[m"
+    $ECHO -e "\033[1;95m$*\033[m"
 }
 
 echoLightBoldULMagenta()
 {
-    $ECHO -e "\e[4;1;95m$@\e[m"
+    $ECHO -e "\033[4;1;95m$*\033[m"
 }
 
 echoCyan()
 {
-    $ECHO -e "\e[36m$@\e[m"
+    $ECHO -e "\033[36m$*\033[m"
 }
 
 echoULCyan()
 {
-    $ECHO -e "\e[4;36m$@\e[m"
+    $ECHO -e "\033[4;36m$*\033[m"
 }
 
 echoBoldCyan()
 {
-    $ECHO -e "\e[1;36m$@\e[m"
+    $ECHO -e "\033[1;36m$*\033[m"
 }
 
 echoBoldULCyan()
 {
-    $ECHO -e "\e[4;1;36m$@\e[m"
+    $ECHO -e "\033[4;1;36m$*\033[m"
 }
 
 echoLightCyan()
 {
-    $ECHO -e "\e[96m$@\e[m"
+    $ECHO -e "\033[96m$*\033[m"
 }
 
 echoLightULCyan()
 {
-    $ECHO -e "\e[4;96m$@\e[m"
+    $ECHO -e "\033[4;96m$*\033[m"
 }
 
 echoLightBoldCyan()
 {
-    $ECHO -e "\e[1;96m$@\e[m"
+    $ECHO -e "\033[1;96m$*\033[m"
 }
 
 echoLightBoldULCyan()
 {
-    $ECHO -e "\e[4;1;96m$@\e[m"
+    $ECHO -e "\033[4;1;96m$*\033[m"
 }
 
 echoWhite()
 {
-    $ECHO -e "\e[37m$@\e[m"
+    $ECHO -e "\033[37m$*\033[m"
 }
 
 echoULWhite()
 {
-    $ECHO -e "\e[4;37m$@\e[m"
+    $ECHO -e "\033[4;37m$*\033[m"
 }
 
 echoBoldWhite()
 {
-    $ECHO -e "\e[1;37m$@\e[m"
+    $ECHO -e "\033[1;37m$*\033[m"
 }
 
 echoBoldULWhite()
 {
-    $ECHO -e "\e[4;1;37m$@\e[m"
+    $ECHO -e "\033[4;1;37m$*\033[m"
 }
 
 echoLightWhite()
 {
-    $ECHO -e "\e[97m$@\e[m"
+    $ECHO -e "\033[97m$*\033[m"
 }
 
 echoLightULWhite()
 {
-    $ECHO -e "\e[4;97m$@\e[m"
+    $ECHO -e "\033[4;97m$*\033[m"
 }
 
 echoLightBoldWhite()
 {
-    $ECHO -e "\e[1;97m$@\e[m"
+    $ECHO -e "\033[1;97m$*\033[m"
 }
 
 echoLightBoldULWhite()
 {
-    $ECHO -e "\e[4;1;97m$@\e[m"
+    $ECHO -e "\033[4;1;97m$*\033[m"
 }
 
 echoPurple()
 {
-    $ECHO -e "\e[3;38;5;93m$@\e[m"
+    $ECHO -e "\033[3;38;5;93m$*\033[m"
 }
 
 echoULPurple()
 {
-    $ECHO -e "\e[4;3;38;5;93m$@\e[m"
+    $ECHO -e "\033[4;3;38;5;93m$*\033[m"
 }
 
 echoBoldPurple()
 {
-    $ECHO -e "\e[1;3;38;5;93m$@\e[m"
+    $ECHO -e "\033[1;3;38;5;93m$*\033[m"
 }
 
 echoBoldULPurple()
 {
-    $ECHO -e "\e[4;1;3;38;5;93m$@\e[m"
+    $ECHO -e "\033[4;1;3;38;5;93m$*\033[m"
 }
 
 echoLightPurple()
 {
-    $ECHO -e "\e[9;38;5;93m$@\e[m"
+    $ECHO -e "\033[9;38;5;93m$*\033[m"
 }
 
 echoLightULPurple()
 {
-    $ECHO -e "\e[4;9;38;5;93m$@\e[m"
+    $ECHO -e "\033[4;9;38;5;93m$*\033[m"
 }
 
 echoLightBoldPurple()
 {
-    $ECHO -e "\e[1;9;38;5;93m$@\e[m"
+    $ECHO -e "\033[1;9;38;5;93m$*\033[m"
 }
 
 echoLightBoldULPurple()
 {
-    $ECHO -e "\e[4;1;9;38;5;93m$@\e[m"
+    $ECHO -e "\033[4;1;9;38;5;93m$*\033[m"
 }
 
 echoOrange()
 {
-    $ECHO -e "\e[3;38;5;202m$@\e[m"
+    $ECHO -e "\033[3;38;5;202m$*\033[m"
 }
 
 echoULOrange()
 {
-    $ECHO -e "\e[4;3;38;5;202m$@\e[m"
+    $ECHO -e "\033[4;3;38;5;202m$*\033[m"
 }
 
 echoBoldOrange()
 {
-    $ECHO -e "\e[1;3;38;5;202m$@\e[m"
+    $ECHO -e "\033[1;3;38;5;202m$*\033[m"
 }
 
 echoBoldULOrange()
 {
-    $ECHO -e "\e[4;1;3;38;5;202m$@\e[m"
+    $ECHO -e "\033[4;1;3;38;5;202m$*\033[m"
 }
 
 echoLightOrange()
 {
-    $ECHO -e "\e[9;38;5;202m$@\e[m"
+    $ECHO -e "\033[9;38;5;202m$*\033[m"
 }
 
 echoLightULOrange()
 {
-    $ECHO -e "\e[4;9;38;5;202m$@\e[m"
+    $ECHO -e "\033[4;9;38;5;202m$*\033[m"
 }
 
 echoLightBoldOrange()
 {
-    $ECHO -e "\e[1;9;38;5;202m$@\e[m"
+    $ECHO -e "\033[1;9;38;5;202m$*\033[m"
 }
 
 echoLightBoldULOrange()
 {
-    $ECHO -e "\e[4;1;9;38;5;202m$@\e[m"
+    $ECHO -e "\033[4;1;9;38;5;202m$*\033[m"
 }
 
 echoPink()
 {
-    $ECHO -e "\e[3;38;5;206m$@\e[m"
+    $ECHO -e "\033[3;38;5;206m$*\033[m"
 }
 
 echoULPink()
 {
-    $ECHO -e "\e[4;3;38;5;206m$@\e[m"
+    $ECHO -e "\033[4;3;38;5;206m$*\033[m"
 }
 
 echoBoldPink()
 {
-    $ECHO -e "\e[1;3;38;5;206m$@\e[m"
+    $ECHO -e "\033[1;3;38;5;206m$*\033[m"
 }
 
 echoBoldULPink()
 {
-    $ECHO -e "\e[4;1;3;38;5;206m$@\e[m"
+    $ECHO -e "\033[4;1;3;38;5;206m$*\033[m"
 }
 
 echoLightPink()
 {
-    $ECHO -e "\e[9;38;5;206m$@\e[m"
+    $ECHO -e "\033[9;38;5;206m$*\033[m"
 }
 
 echoLightULPink()
 {
-    $ECHO -e "\e[4;9;38;5;206m$@\e[m"
+    $ECHO -e "\033[4;9;38;5;206m$*\033[m"
 }
 
 echoLightBoldPink()
 {
-    $ECHO -e "\e[1;9;38;5;206m$@\e[m"
+    $ECHO -e "\033[1;9;38;5;206m$*\033[m"
 }
 
 echoLightBoldULPink()
 {
-    $ECHO -e "\e[4;1;9;38;5;206m$@\e[m"
+    $ECHO -e "\033[4;1;9;38;5;206m$*\033[m"
 }
 
 echoBrown()
 {
-    $ECHO -e "\e[3;38;5;52m$@\e[m"
+    $ECHO -e "\033[3;38;5;52m$*\033[m"
 }
 
 echoULBrown()
 {
-    $ECHO -e "\e[4;3;38;5;52m$@\e[m"
+    $ECHO -e "\033[4;3;38;5;52m$*\033[m"
 }
 
 echoBoldBrown()
 {
-    $ECHO -e "\e[1;3;38;5;52m$@\e[m"
+    $ECHO -e "\033[1;3;38;5;52m$*\033[m"
 }
 
 echoBoldULBrown()
 {
-    $ECHO -e "\e[4;1;3;38;5;52m$@\e[m"
+    $ECHO -e "\033[4;1;3;38;5;52m$*\033[m"
 }
 
 echoLightBrown()
 {
-    $ECHO -e "\e[9;38;5;52m$@\e[m"
+    $ECHO -e "\033[9;38;5;52m$*\033[m"
 }
 
 echoLightULBrown()
 {
-    $ECHO -e "\e[4;9;38;5;52m$@\e[m"
+    $ECHO -e "\033[4;9;38;5;52m$*\033[m"
 }
 
 echoLightBoldBrown()
 {
-    $ECHO -e "\e[1;9;38;5;52m$@\e[m"
+    $ECHO -e "\033[1;9;38;5;52m$*\033[m"
 }
 
 echoLightBoldULBrown()
 {
-    $ECHO -e "\e[4;1;9;38;5;52m$@\e[m"
+    $ECHO -e "\033[4;1;9;38;5;52m$*\033[m"
 }
  echoRainbow()
 {
-    if type lolcat > /dev/null 2>&1; then
-        echo "$@" | lolcat
+    if which lolcat > /dev/null 2>&1; then
+        echo "$*" | lolcat
     else
-        echo "$@"
+        echo "$*"
     fi
 }
  echoReset()
 {
-    echo "$@" | tr -d '[:cntrl:]' | sed -E "s/\[((;)?[0-9]{1,3}){0,3}m//g"
+    echo "$*" | tr -d '[:cntrl:]' | sed -E "s/\[((;)?[0-9]{1,3}){0,3}m//g"
 }
