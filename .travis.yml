@@ -22,3 +22,36 @@ matrix:
     script:
       - shellcheck dist/ColorEcho.bash
 
+  - env:
+      - task=test-dist-sh
+    script:
+      - ./test-scripts/sh
+  - env:
+      - task=test-dist-zsh
+    addons:
+      apt:
+        packages:
+          - zsh
+    script:
+      - ./test-scripts/zsh
+  - env:
+      - task=test-dist-ksh
+    addons:
+      apt:
+        packages:
+          - ksh
+    script:
+      - ./test-scripts/ksh
+  - env:
+      - task=test-dist-bash
+    script:
+      - ./test-scripts/bash
+  - env:
+      - task=test-dist-fish
+    addons:
+      apt:
+        packages:
+          - fish
+    script:
+      - ./test-scripts/fish
+
