@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+set -e
+dir="$(cd "$(dirname "${(%):-%N}")" && pwd)"
+script="${dir}/../dist/ColorEcho.zsh"
+. "${script}"
+
+awk '/^function +echo/ {print $2}' "${script}" | while IFS= read -r x
+do
+    $x "$x"
+done

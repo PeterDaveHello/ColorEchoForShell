@@ -1,0 +1,9 @@
+#!/usr/bin/env fish
+
+set dir (cd (dirname (status --current-filename)); and pwd)
+set script "$dir/../dist/ColorEcho.fish"
+. "$script"
+
+for x in (awk '/^function +echo/ {print $2}' "$script")
+    eval $x "$x"
+end
