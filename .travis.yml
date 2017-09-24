@@ -1,0 +1,24 @@
+language: generic
+
+git:
+  depth: 5
+
+matrix:
+  include:
+  - env:
+      - task=shellcheck
+    script:
+      - shellcheck -x generator.sh
+  - env:
+      - task=shellcheck-dist-sh
+    script:
+      - shellcheck dist/ColorEcho.sh
+  - env:
+      - task=shellcheck-dist-ksh
+    script:
+      - shellcheck dist/ColorEcho.ksh
+  - env:
+      - task=shellcheck-dist-bash
+    script:
+      - shellcheck dist/ColorEcho.bash
+
