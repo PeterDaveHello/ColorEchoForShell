@@ -24,48 +24,6 @@ matrix:
     script:
       - shellcheck dist/ColorEcho.bash
 
-# test all echo functions on difference shell on Linux
-  - env:
-      - task=test-dist-sh
-    script:
-      - ./test-scripts/sh
-  - env:
-      - task=test-dist-zsh
-    addons:
-      apt:
-        packages:
-          - zsh
-    before_script:
-      - type zsh && zsh --version
-    script:
-      - ./test-scripts/zsh
-  - env:
-      - task=test-dist-ksh
-    addons:
-      apt:
-        packages:
-          - ksh
-    before_script:
-      - type ksh && ksh --version || printf ""
-    script:
-      - ./test-scripts/ksh
-  - env:
-      - task=test-dist-bash
-    before_script:
-      - type bash && bash --version
-    script:
-      - ./test-scripts/bash
-  - env:
-      - task=test-dist-fish
-    addons:
-      apt:
-        packages:
-          - fish
-    before_script:
-      - type fish && fish --version
-    script:
-      - ./test-scripts/fish
-
 # test all echo functions on difference shell(except sh, which is actually bash) on Mac
   - os: osx
     env:
@@ -104,6 +62,48 @@ matrix:
       - task=test-dist-fish
     before_script:
       - brew install fish
+      - type fish && fish --version
+    script:
+      - ./test-scripts/fish
+
+# test all echo functions on difference shell on Linux
+  - env:
+      - task=test-dist-sh
+    script:
+      - ./test-scripts/sh
+  - env:
+      - task=test-dist-zsh
+    addons:
+      apt:
+        packages:
+          - zsh
+    before_script:
+      - type zsh && zsh --version
+    script:
+      - ./test-scripts/zsh
+  - env:
+      - task=test-dist-ksh
+    addons:
+      apt:
+        packages:
+          - ksh
+    before_script:
+      - type ksh && ksh --version || printf ""
+    script:
+      - ./test-scripts/ksh
+  - env:
+      - task=test-dist-bash
+    before_script:
+      - type bash && bash --version
+    script:
+      - ./test-scripts/bash
+  - env:
+      - task=test-dist-fish
+    addons:
+      apt:
+        packages:
+          - fish
+    before_script:
       - type fish && fish --version
     script:
       - ./test-scripts/fish
