@@ -35,6 +35,8 @@ matrix:
       apt:
         packages:
           - zsh
+    before_script:
+      - type zsh && zsh --version
     script:
       - ./test-scripts/zsh
   - env:
@@ -43,10 +45,14 @@ matrix:
       apt:
         packages:
           - ksh
+    before_script:
+      - type ksh && ksh --version || printf ""
     script:
       - ./test-scripts/ksh
   - env:
       - task=test-dist-bash
+    before_script:
+      - type bash && bash --version
     script:
       - ./test-scripts/bash
   - env:
@@ -55,6 +61,8 @@ matrix:
       apt:
         packages:
           - fish
+    before_script:
+      - type fish && fish --version
     script:
       - ./test-scripts/fish
 
@@ -64,6 +72,7 @@ matrix:
       - task=test-dist-zsh
     before_script:
       - brew install zsh
+      - type zsh && zsh --version
     script:
       - ./test-scripts/zsh
   - os: osx
@@ -71,11 +80,14 @@ matrix:
       - task=test-dist-ksh
     before_script:
       - brew install ksh
+      - type ksh && ksh --version || printf ""
     script:
       - ./test-scripts/ksh
   - os: osx
     env:
       - task=test-dist-bash-builtin
+    before_script:
+      - type bash && bash --version
     script:
       - ./test-scripts/bash
   - os: osx
@@ -84,6 +96,7 @@ matrix:
       - PATH="/usr/local/bin/:$PATH"
     before_script:
       - brew install bash
+      - type bash && bash --version
     script:
       - ./test-scripts/bash
   - os: osx
@@ -91,5 +104,6 @@ matrix:
       - task=test-dist-fish
     before_script:
       - brew install fish
+      - type fish && fish --version
     script:
       - ./test-scripts/fish
