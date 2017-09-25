@@ -58,3 +58,38 @@ matrix:
     script:
       - ./test-scripts/fish
 
+# test all echo functions on difference shell(except sh, which is actually bash) on Mac
+  - os: osx
+    env:
+      - task=test-dist-zsh
+    before_script:
+      - brew install zsh
+    script:
+      - ./test-scripts/zsh
+  - os: osx
+    env:
+      - task=test-dist-ksh
+    before_script:
+      - brew install ksh
+    script:
+      - ./test-scripts/ksh
+  - os: osx
+    env:
+      - task=test-dist-bash-builtin
+    script:
+      - ./test-scripts/bash
+  - os: osx
+    env:
+      - task=test-dist-bash-brew-install
+      - PATH="/usr/local/bin/:$PATH"
+    before_script:
+      - brew install bash
+    script:
+      - ./test-scripts/bash
+  - os: osx
+    env:
+      - task=test-dist-fish
+    before_script:
+      - brew install fish
+    script:
+      - ./test-scripts/fish
