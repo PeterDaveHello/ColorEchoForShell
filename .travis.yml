@@ -51,9 +51,9 @@ matrix:
   - os: osx
     env:
       - task=test-dist-bash-brew-install
-      - PATH="/usr/local/bin/:$PATH"
     before_script:
       - brew install bash
+      - export PATH="/usr/local/bin:$PATH"
       - type bash && bash --version
     script:
       - ./test-scripts/bash
