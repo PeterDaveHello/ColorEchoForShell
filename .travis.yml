@@ -3,29 +3,34 @@ language: generic
 git:
   depth: 5
 
-matrix:
+jobs:
   include:
 
 # ShellCheck tests on generator and sh, ksh, bash dist files
-  - env:
+  - stage: Static tests
+    env:
       - task=shellcheck
     script:
       - shellcheck -x generator.sh
-  - env:
+  - stage: Static tests
+    env:
       - task=shellcheck-dist-sh
     script:
       - shellcheck dist/ColorEcho.sh
-  - env:
+  - stage: Static tests
+    env:
       - task=shellcheck-dist-ksh
     script:
       - shellcheck dist/ColorEcho.ksh
-  - env:
+  - stage: Static tests
+    env:
       - task=shellcheck-dist-bash
     script:
       - shellcheck dist/ColorEcho.bash
 
 # test all echo functions on difference shell(except sh, which is actually bash) on Mac
-  - os: osx
+  - stage: macOS runtime test
+    os: osx
     env:
       - task=test-dist-zsh
     before_script:
@@ -33,7 +38,8 @@ matrix:
       - type zsh && zsh --version
     script:
       - ./test-scripts/zsh
-  - os: osx
+  - stage: macOS runtime test
+    os: osx
     env:
       - task=test-dist-ksh
     before_script:
@@ -41,14 +47,16 @@ matrix:
       - type ksh && ksh --version || printf ""
     script:
       - ./test-scripts/ksh
-  - os: osx
+  - stage: macOS runtime test
+    os: osx
     env:
       - task=test-dist-bash-builtin
     before_script:
       - type bash && bash --version
     script:
       - ./test-scripts/bash
-  - os: osx
+  - stage: macOS runtime test
+    os: osx
     env:
       - task=test-dist-bash-brew-install
     before_script:
@@ -57,7 +65,8 @@ matrix:
       - type bash && bash --version
     script:
       - ./test-scripts/bash
-  - os: osx
+  - stage: macOS runtime test
+    os: osx
     env:
       - task=test-dist-fish
     before_script:
@@ -67,11 +76,13 @@ matrix:
       - ./test-scripts/fish
 
 # test all echo functions on difference shell on Linux
-  - env:
+  - stage: Ubuntu runtime test
+    env:
       - task=test-dist-sh
     script:
       - ./test-scripts/sh
-  - env:
+  - stage: Ubuntu runtime test
+    env:
       - task=test-dist-zsh
     addons:
       apt:
@@ -81,7 +92,8 @@ matrix:
       - type zsh && zsh --version
     script:
       - ./test-scripts/zsh
-  - env:
+  - stage: Ubuntu runtime test
+    env:
       - task=test-dist-ksh
     addons:
       apt:
@@ -91,13 +103,15 @@ matrix:
       - type ksh && ksh --version || printf ""
     script:
       - ./test-scripts/ksh
-  - env:
+  - stage: Ubuntu runtime test
+    env:
       - task=test-dist-bash
     before_script:
       - type bash && bash --version
     script:
       - ./test-scripts/bash
-  - env:
+  - stage: Ubuntu runtime test
+    env:
       - task=test-dist-fish
     addons:
       apt:
