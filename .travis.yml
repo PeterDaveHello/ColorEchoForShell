@@ -28,53 +28,6 @@ jobs:
     script:
       - shellcheck dist/ColorEcho.bash
 
-# test all echo functions on difference shell(except sh, which is actually bash) on Mac
-  - stage: macOS runtime test
-    os: osx
-    env:
-      - task=test-dist-zsh
-    before_script:
-      - brew install zsh
-      - type zsh && zsh --version
-    script:
-      - ./test-scripts/zsh
-  - stage: macOS runtime test
-    os: osx
-    env:
-      - task=test-dist-ksh
-    before_script:
-      - brew install ksh
-      - type ksh && ksh --version || printf ""
-    script:
-      - ./test-scripts/ksh
-  - stage: macOS runtime test
-    os: osx
-    env:
-      - task=test-dist-bash-builtin
-    before_script:
-      - type bash && bash --version
-    script:
-      - ./test-scripts/bash
-  - stage: macOS runtime test
-    os: osx
-    env:
-      - task=test-dist-bash-brew-install
-    before_script:
-      - brew install bash
-      - export PATH="/usr/local/bin:$PATH"
-      - type bash && bash --version
-    script:
-      - ./test-scripts/bash
-  - stage: macOS runtime test
-    os: osx
-    env:
-      - task=test-dist-fish
-    before_script:
-      - brew install fish
-      - type fish && fish --version
-    script:
-      - ./test-scripts/fish
-
 # test all echo functions on difference shell on Linux
   - stage: Ubuntu runtime test
     env:
@@ -118,6 +71,53 @@ jobs:
         packages:
           - fish
     before_script:
+      - type fish && fish --version
+    script:
+      - ./test-scripts/fish
+
+# test all echo functions on difference shell(except sh, which is actually bash) on Mac
+  - stage: macOS runtime test
+    os: osx
+    env:
+      - task=test-dist-zsh
+    before_script:
+      - brew install zsh
+      - type zsh && zsh --version
+    script:
+      - ./test-scripts/zsh
+  - stage: macOS runtime test
+    os: osx
+    env:
+      - task=test-dist-ksh
+    before_script:
+      - brew install ksh
+      - type ksh && ksh --version || printf ""
+    script:
+      - ./test-scripts/ksh
+  - stage: macOS runtime test
+    os: osx
+    env:
+      - task=test-dist-bash-builtin
+    before_script:
+      - type bash && bash --version
+    script:
+      - ./test-scripts/bash
+  - stage: macOS runtime test
+    os: osx
+    env:
+      - task=test-dist-bash-brew-install
+    before_script:
+      - brew install bash
+      - export PATH="/usr/local/bin:$PATH"
+      - type bash && bash --version
+    script:
+      - ./test-scripts/bash
+  - stage: macOS runtime test
+    os: osx
+    env:
+      - task=test-dist-fish
+    before_script:
+      - brew install fish
       - type fish && fish --version
     script:
       - ./test-scripts/fish
