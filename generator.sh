@@ -163,7 +163,7 @@ LOLCAT
     cat << RESET >> "$newDist"
 $fnName
 $startSym
-    echo "\$$para" | tr -d '[:cntrl:]' | sed -E "s/\[((;)?[0-9]{1,3}){0,3}m//g"
+    echo "\$$para" | tr -d '[:cntrl:]' | sed -E "s/\\[((;)?[0-9]{1,3}){0,3}m//g"
 $endSym
 RESET
     } &
