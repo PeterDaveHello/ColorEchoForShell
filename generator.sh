@@ -134,7 +134,7 @@ SH_ECHO
     done
 
     #rainbow output relys on lolcat
-    fnName="${fn} echo${dot}Rainbow${brackets}"
+    fnName="${fn}echo${dot}Rainbow${brackets}"
     case "$shell" in
         "fish")
             ifCond="if which lolcat > /dev/null"
@@ -159,7 +159,7 @@ $endSym
 LOLCAT
 
     #echo.Reset to remove color code on output
-    fnName="${fn} echo${dot}Reset${brackets}"
+    fnName="${fn}echo${dot}Reset${brackets}"
     cat << RESET >> "$newDist"
 $fnName
 $startSym
