@@ -29,6 +29,8 @@ jobs:
       - shellcheck dist/ColorEcho.bash
   - stage: Static tests
     language: node_js
+    node_js:
+      - "8"
     env:
       - task=editorconfig-check
     install:

@@ -479,7 +479,7 @@ function echoLightBoldULBrown
 {
     /bin/echo -e "\033[4;1;9;38;5;52m$*\033[m"
 }
-function  echoRainbow
+function echoRainbow
 {
     if which lolcat 2> /dev/null >&2; then
         echo "$*" | lolcat
@@ -487,7 +487,7 @@ function  echoRainbow
         echo "$*"
     fi
 }
-function  echoReset
+function echoReset
 {
     echo "$*" | tr -d '[:cntrl:]' | sed -E "s/\[((;)?[0-9]{1,3}){0,3}m//g"
 }
