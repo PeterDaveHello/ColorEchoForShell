@@ -27,6 +27,14 @@ jobs:
       - task=shellcheck-dist-bash
     script:
       - shellcheck dist/ColorEcho.bash
+  - stage: Static tests
+    language: node_js
+    env:
+      - task=editorconfig-check
+    install:
+      - npm i -g echint
+    script:
+      - echint
 
 # test all echo functions on difference shell on Linux
   - stage: Ubuntu runtime test
