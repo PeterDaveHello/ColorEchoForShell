@@ -88,9 +88,9 @@ for shell in sh bash fish ksh zsh; do
     if [ "${shell}" = "sh" ]; then
       cat << SH_ECHO >> "${newDist}"
         if [ "\$(uname)" = "FreeBSD" ]; then
-    ECHO="echo"
+  ECHO="echo"
 else
-    ECHO="/bin/echo"
+  ECHO="/bin/echo"
 fi
 SH_ECHO
     fi
@@ -121,7 +121,7 @@ SH_ECHO
               fi
               #write the code down
               echo "${startSym}"
-              echo "    ${echo}"' -e "\033['"${ulCode}${bCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\033[m"'
+              echo "  ${echo}"' -e "\033['"${ulCode}${bCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\033[m"'
               echo "${endSym}"
             } >> "${newDist}"
           done
@@ -146,11 +146,11 @@ SH_ECHO
     cat << LOLCAT >> "${newDist}"
 ${fnName}
 ${startSym}
-    ${ifCond}
-        echo "\$${para}" | lolcat
-    else
-        echo "\$${para}"
-    ${endIf}
+  ${ifCond}
+    echo "\$${para}" | lolcat
+  else
+    echo "\$${para}"
+  ${endIf}
 ${endSym}
 LOLCAT
 
@@ -159,7 +159,7 @@ LOLCAT
     cat << RESET >> "${newDist}"
 ${fnName}
 ${startSym}
-    echo "\$${para}" | tr -d '[:cntrl:]' | sed -E "s/\\[((;)?[0-9]{1,3}){0,3}m//g"
+  echo "\$${para}" | tr -d '[:cntrl:]' | sed -E "s/\\[((;)?[0-9]{1,3}){0,3}m//g"
 ${endSym}
 RESET
   } &
