@@ -29,8 +29,7 @@ fi
 
 echo.BoldGreen "ColorEcho generator start!"
 
-for shell in sh bash fish ksh zsh
-do
+for shell in sh bash fish ksh zsh; do
   {
     echo.BoldYellow "Generating ColorEcho for ${shell} shell ..."
     #shell specify configs and tricks
@@ -95,27 +94,23 @@ else
 fi
 SH_ECHO
     fi
-    awk '{print $1}' "${table}" | while IFS= read -r color
-    do
+    awk '{print $1}' "${table}" | while IFS= read -r color; do
       #light or not
-      for light in "" "Light"
-      do
+      for light in "" "Light"; do
         if [ "${light}" = "" ]; then
           code=3
         else
           code=9
         fi
         #bold or not
-        for bold in "" "Bold"
-        do
+        for bold in "" "Bold"; do
           if [ "${bold}" = "" ]; then
             bCode=
           else
             bCode='1;'
           fi
           #underline or not
-          for underLine in "" "UL"
-          do
+          for underLine in "" "UL"; do
             {
               echo ""
               echo "${fn}echo${dot}${light}${bold}${underLine}${color}${brackets}"

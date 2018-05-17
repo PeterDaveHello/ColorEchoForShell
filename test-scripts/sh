@@ -5,7 +5,6 @@ dir="$(cd "$(dirname "$_")" && pwd)"
 script="${dir}/../dist/ColorEcho.sh"
 . "${script}"
 
-grep -E "echo[a-zA-Z]+()" "${script}" | sed 's/()//g' | while IFS= read -r x
-do
+grep -E "echo[a-zA-Z]+()" "${script}" | sed 's/()//g' | while IFS= read -r x; do
   ${x} "${x}"
 done
