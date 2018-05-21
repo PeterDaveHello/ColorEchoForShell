@@ -7,5 +7,5 @@ script="${dir}/../dist/ColorEcho.bash"
 
 awk '/^function +echo/ {print $2}' "${script}" | while IFS= read -r x
 do
-    $x "$x"
+  ${x} "${x}"
 done

@@ -5,5 +5,5 @@ set script "$dir/../dist/ColorEcho.fish"
 . "$script"
 
 for x in (awk '/^function +echo/ {print $2}' "$script")
-    eval $x "$x"
+  eval $x "$x"
 end

@@ -7,5 +7,5 @@ script="${dir}/../dist/ColorEcho.sh"
 
 grep -E "echo[a-zA-Z]+()" "${script}" | sed 's/()//g' | while IFS= read -r x
 do
-    $x "$x"
+  ${x} "${x}"
 done
