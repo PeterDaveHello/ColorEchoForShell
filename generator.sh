@@ -37,7 +37,7 @@ for shell in sh bash fish ksh zsh; do
       "bash" | "zsh")
         fn='function '
         dot='.'
-        echo='echo'
+        echo='echo -e'
         startSym=' {'
         endSym='}'
         endIf='fi'
@@ -47,7 +47,7 @@ for shell in sh bash fish ksh zsh; do
       "ksh")
         fn='function '
         dot=
-        echo='/bin/echo'
+        echo='/bin/echo -e'
         startSym=' {'
         endSym='}'
         endIf='fi'
@@ -57,7 +57,7 @@ for shell in sh bash fish ksh zsh; do
       "fish")
         fn='function '
         dot='.'
-        echo='echo'
+        echo='echo -e'
         startSym=
         endSym='end'
         endIf='end'
@@ -88,9 +88,11 @@ for shell in sh bash fish ksh zsh; do
     if [ "${shell}" = "sh" ]; then
       cat << SH_ECHO >> "${newDist}"
 if [ "\$(uname)" = "FreeBSD" ]; then
+  ECHO="echo -e"
+elif [ "\$(uname)" = "Darwin" ]; then
   ECHO="echo"
 else
-  ECHO="/bin/echo"
+  ECHO="/bin/echo -e"
 fi
 SH_ECHO
     fi
@@ -121,7 +123,7 @@ SH_ECHO
               fi
               #write the code down
               echo "${startSym}"
-              echo "  ${echo}"' -e "\033['"${ulCode}${bCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\033[m"'
+              echo "  ${echo}"' "\033['"${ulCode}${bCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\033[m"'
               echo "${endSym}"
             } >> "${newDist}"
           done
