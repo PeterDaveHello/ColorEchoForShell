@@ -47,7 +47,7 @@ for shell in sh bash fish ksh zsh; do
       "ksh")
         fn='function '
         dot=
-        echo='/bin/echo -e'
+        echo='echo -e'
         startSym=' {'
         endSym='}'
         endIf='fi'
