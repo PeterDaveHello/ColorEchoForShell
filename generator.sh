@@ -38,7 +38,7 @@ for shell in sh bash fish ksh zsh; do
         fn='function '
         dot='.'
         echo='echo'
-        startSym='{'
+        startSym=' {'
         endSym='}'
         endIf='fi'
         brackets=
@@ -48,7 +48,7 @@ for shell in sh bash fish ksh zsh; do
         fn='function '
         dot=
         echo='/bin/echo'
-        startSym='{'
+        startSym=' {'
         endSym='}'
         endIf='fi'
         brackets=
@@ -69,7 +69,7 @@ for shell in sh bash fish ksh zsh; do
         dot=
         # shellcheck disable=SC2016
         echo='$ECHO'
-        startSym='{'
+        startSym=' {'
         endSym='}'
         endIf='fi'
         brackets='()'
@@ -113,7 +113,7 @@ SH_ECHO
           for underLine in "" "UL"; do
             {
               echo ""
-              echo "${fn}echo${dot}${light}${bold}${underLine}${color}${brackets}"
+              printf "%secho%s%s%s%s%s%s" "${fn}" "${dot}" "${light}" "${bold}" "${underLine}" "${color}" "${brackets}"
               if [ "${underLine}" = "" ]; then
                 ulCode=
               else
