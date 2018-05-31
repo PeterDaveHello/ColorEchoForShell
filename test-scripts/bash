@@ -5,6 +5,6 @@ dir="$(cd "$(dirname "$0")" && pwd)"
 script="${dir}/../dist/ColorEcho.bash"
 . "${script}"
 
-awk '/^function +echo/ {print $2}' "${script}" | while IFS= read -r x; do
+awk '/^function +echo/ {print $2}' "${script}" | sed 's/()//g' | while IFS= read -r x; do
   ${x} "${x}"
 done
