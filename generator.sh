@@ -41,7 +41,7 @@ for shell in sh bash fish ksh zsh; do
         startSym=' {'
         endSym='}'
         endIf='fi'
-        brackets=
+        brackets='()'
         para='*'
         ;;
       "ksh")
@@ -144,8 +144,7 @@ SH_ECHO
     esac
 
     cat << LOLCAT >> "${newDist}"
-${fnName}
-${startSym}
+${fnName}${startSym}
   ${ifCond}
     echo "\$${para}" | lolcat
   else
@@ -157,8 +156,7 @@ LOLCAT
     #echo.Reset to remove color code on output
     fnName="${fn}echo${dot}Reset${brackets}"
     cat << RESET >> "${newDist}"
-${fnName}
-${startSym}
+${fnName}${startSym}
   echo "\$${para}" | tr -d '[:cntrl:]' | sed -E "s/\\[((;)?[0-9]{1,3}){0,3}m//g"
 ${endSym}
 RESET
