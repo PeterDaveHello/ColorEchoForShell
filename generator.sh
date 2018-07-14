@@ -86,7 +86,7 @@ for shell in sh bash fish ksh zsh; do
 
     echo "#!/usr/bin/env ${shell}" > "${newDist}"
 
-cat << SH_ECHO >> "${newDist}"
+    cat << SH_ECHO >> "${newDist}"
 
 # ColorEchoForShell
 # https://github.com/PeterDaveHello/ColorEchoForShell
