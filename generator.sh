@@ -147,7 +147,7 @@ SH_ECHO
               fi
               #write the code down
               echo "${startSym}"
-              echo "  ${echo}"' "\033['"${ulCode}${bCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\033[m"'
+              echo "  ${echo}"' "\\033['"${ulCode}${bCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\\033[m"'
               echo "${endSym}"
             } >> "${newDist}"
           done
@@ -183,7 +183,7 @@ LOLCAT
     fnName="${fn}echo${dot}Reset${brackets}"
     cat << RESET >> "${newDist}"
 ${fnName}${startSym}
-  echo "\$${para}" | tr -d '[:cntrl:]' | sed -E "s/\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs
+  echo "\$${para}" | tr -d '[:cntrl:]' | sed -E "s/\\\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs
 ${endSym}
 RESET
   } &
