@@ -159,13 +159,13 @@ SH_ECHO
     fnName="${fn}echo${dot}Rainbow${brackets}"
     case "${shell}" in
       "fish")
-        ifCond="if which lolcat > /dev/null"
+        ifCond="if command -v lolcat > /dev/null"
         ;;
       "ksh")
-        ifCond='if which lolcat 2> /dev/null >&2; then'
+        ifCond='if command -v lolcat 2> /dev/null >&2; then'
         ;;
       *)
-        ifCond='if which lolcat > /dev/null 2>&1; then'
+        ifCond='if command -v lolcat > /dev/null 2>&1; then'
         ;;
     esac
 
