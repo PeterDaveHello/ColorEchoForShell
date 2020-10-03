@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/PeterDaveHello/ColorEchoForShell.svg?branch=master)](https://travis-ci.org/PeterDaveHello/ColorEchoForShell)
 ![License badge](https://img.shields.io/badge/license-GPL%20v2.0-brightgreen.svg)
 
-Make echo colorful with easier method. In [bash](https://www.gnu.org/software/bash/), [sh](https://en.wikipedia.org/wiki/Bourne_shell), [fish](http://fishshell.com/), [ksh](http://www.kornshell.com/) and [zsh](http://www.zsh.org/). Which can help you print debug, warning, error message in shell scripts with meaningful colors, and make the output more readable.
+Make echo Colorful with easier method. In [bash](https://www.gnu.org/software/bash/), [sh](https://en.wikipedia.org/wiki/Bourne_shell), [fish](http://fishshell.com/), [ksh](http://www.kornshell.com/) and [zsh](http://www.zsh.org/). Which can help you print debug, warning, error message in shell scripts with meaningful colors, and make the output more readable.
 
 Please note that [certain colors](https://github.com/PeterDaveHello/ColorEchoForShell/blob/master/color%20table.txt#L9-L12) will really depend on the environment, my demo is under a terminal called [Terminator](http://gnometerminator.blogspot.com/p/introduction.html), you can simply install it via apt, yum, pkg or other package manager. Actually, all the colors display depend on the environment setting, but I just name/define name by the most common cases I know by far.
 
@@ -23,7 +23,7 @@ Please note that [certain colors](https://github.com/PeterDaveHello/ColorEchoFor
 
 ## Installation
 
-* Download the script, choice the one for your shell by its extension in the filename.
+* Download the Script, Choice the one for your shell by its extension in the Filename.
   * For example [dist/ColorEcho.bash](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/v0.0.7/dist/ColorEcho.bash) for bash.
 * Add a line to include the script in your shell rc or run it directly:
 
