@@ -32,7 +32,7 @@ echo.BoldGreen "ColorEcho generator start!"
 for shell in sh bash fish ksh zsh; do
   {
     echo.BoldYellow "Generating ColorEcho for ${shell} shell ..."
-    #shell specify configs and tricks
+    # shell specify configs and tricks
     case "${shell}" in
       "bash" | "zsh")
         fn='function '
@@ -120,21 +120,21 @@ fi
 SH_ECHO
     fi
     awk '{print $1}' "${table}" | while IFS= read -r color; do
-      #light or not
+      # light or not
       for light in "" "Light"; do
         if [ "${light}" = "" ]; then
           code=3
         else
           code=9
         fi
-        #bold or not
+        # bold or not
         for bold in "" "Bold"; do
           if [ "${bold}" = "" ]; then
             bCode=
           else
             bCode='1;'
           fi
-          #underline or not
+          # underline or not
           for underLine in "" "UL"; do
             {
               echo ""
@@ -144,7 +144,7 @@ SH_ECHO
               else
                 ulCode='4;'
               fi
-              #write the code down
+              # write the code down
               echo "${startSym}"
               echo "  ${echo}"' "\\033['"${ulCode}${bCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\\033[m"'
               echo "${endSym}"
@@ -154,7 +154,7 @@ SH_ECHO
       done
     done
 
-    #rainbow output relys on lolcat
+    # rainbow output relys on lolcat
     fnName="${fn}echo${dot}Rainbow${brackets}"
     case "${shell}" in
       "fish")
@@ -178,7 +178,7 @@ ${fnName}${startSym}
 ${endSym}
 LOLCAT
 
-    #echo.Reset to remove color code on output
+    # echo.Reset to remove color code on output
     fnName="${fn}echo${dot}Reset${brackets}"
     cat << RESET >> "${newDist}"
 ${fnName}${startSym}
