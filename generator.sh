@@ -8,7 +8,7 @@ distPrefix="ColorEcho"
 table="color table.txt"
 
 if [ ! -r "${distFolder}/${distPrefix}.bash" ] || [ ! -s "${distFolder}/${distPrefix}.bash" ]; then
-  echo "${distFolder}${distPrefix}.bash" is not readable, fallback to use origin echo
+  echo "${distFolder}/${distPrefix}.bash" is not readable, fallback to use origin echo
   alias echo.BoldRed='echo'
   alias echo.BoldGreen='echo'
   alias echo.BoldYellow='echo'
