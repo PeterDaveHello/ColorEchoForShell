@@ -7,15 +7,14 @@ distFolder="dist"
 distPrefix="ColorEcho"
 table="color table.txt"
 
-if [ ! -r "${distFolder}/${distPrefix}.bash" ] || [ ! -s "${distFolder}/${distPrefix}.bash" ]; then
-  echo "${distFolder}/${distPrefix}.bash" is not readable, fallback to use origin echo
+# use ColorEcho
+# shellcheck source=dist/ColorEcho.bash
+if [ ! -r "${distFolder}/${distPrefix}.bash" ] || [ ! -s "${distFolder}/${distPrefix}.bash" ] || ! . "${distFolder}/${distPrefix}.bash" &> /dev/null; then
+  echo "${distFolder}/${distPrefix}.bash" is not usable, fallback to use origin echo
   alias echo.BoldRed='echo'
   alias echo.BoldGreen='echo'
   alias echo.BoldYellow='echo'
 else
-  # use ColorEcho
-  # shellcheck source=dist/ColorEcho.bash
-  . "${distFolder}/${distPrefix}.bash"
   command -v echo.BoldRed &> /dev/null || alias echo.BoldRed='echo'
   command -v echo.BoldGreen &> /dev/null || alias echo.BoldGreen='echo'
   command -v echo.BoldYellow &> /dev/null || alias echo.BoldYellow='echo'
