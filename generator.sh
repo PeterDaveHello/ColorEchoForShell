@@ -8,9 +8,10 @@ distPrefix="ColorEcho"
 table="color table.txt"
 
 # use ColorEcho
+bashDist="${distFolder}/${distPrefix}.bash"
 # shellcheck source=dist/ColorEcho.bash
-if [ ! -r "${distFolder}/${distPrefix}.bash" ] || [ ! -s "${distFolder}/${distPrefix}.bash" ] || ! . "${distFolder}/${distPrefix}.bash" &> /dev/null; then
-  echo "${distFolder}/${distPrefix}.bash" is not usable, fallback to use origin echo
+if [ ! -r "$bashDist" ] || [ ! -s "$bashDist" ] || ! . "$bashDist" &> /dev/null; then
+  echo "${bashDist}" is not usable, fallback to use origin echo
   alias echo.BoldRed='echo'
   alias echo.BoldGreen='echo'
   alias echo.BoldYellow='echo'
