@@ -127,28 +127,36 @@ SH_ECHO
         else
           code=9
         fi
-        # bold or not
-        for bold in "" "Bold"; do
-          if [ "${bold}" = "" ]; then
-            bCode=
-          else
-            bCode='1;'
-          fi
-          # underline or not
-          for underLine in "" "UL"; do
-            {
-              echo ""
-              printf "%secho%s%s%s%s%s%s" "${fn}" "${dot}" "${light}" "${bold}" "${underLine}" "${color}" "${brackets}"
-              if [ "${underLine}" = "" ]; then
-                ulCode=
-              else
-                ulCode='4;'
-              fi
-              # write the code down
-              echo "${startSym}"
-              echo "  ${echo}"' "\\033['"${ulCode}${bCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\\033[m"'
-              echo "${endSym}"
-            } >> "${newDist}"
+        # style like bold, underline
+        for style in "" "Bold" "UL"; do
+          case "${style}" in
+            "Bold") styleCode='1;' ;;
+            "UL")   styleCode='4;' ;;
+            ""|*)   styleCode=     ;;
+          esac
+          for style2 in "" "Bold" "UL"; do
+            if [ "${style}" != "${style2}" ]; then
+              case "${style2}" in
+                "Bold") finalStyleCode="${styleCode}1;"  ;;
+                "UL")   finalStyleCode="${styleCode}4;"  ;;
+                ""|*)   finalStyleCode="${styleCode}"    ;;
+              esac
+            else
+              style2=
+              finalStyleCode="${styleCode}"
+            fi
+            echoFunction="$(printf "%secho%s%s%s%s%s" "${fn}" "${dot}" "${light}" "${style}" "${style2}" "${color}")"
+            echoFunctionShuffle="$(printf "%secho%s%s%s%s%s" "${fn}" "${dot}" "${light}" "${style2}" "${style}" "${color}")"
+            if ! ( grep -q "${echoFunction}" "${newDist}" || grep -q "${echoFunctionShuffle}" "${newDist}") ; then
+              {
+                echo ""
+                printf "%s%s" "${echoFunction}" "${brackets}"
+                # write the code down
+                echo "${startSym}"
+                echo "  ${echo}"' "\\033['"${finalStyleCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\\033[m"'
+                echo "${endSym}"
+              } >> "${newDist}"
+            fi
           done
         done
       done
