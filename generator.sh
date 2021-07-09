@@ -84,9 +84,10 @@ for shell in sh bash fish ksh zsh; do
       exit 1
     fi
 
-    echo "#!/usr/bin/env ${shell}" > "${newDist}"
+    tempDist="$(mktemp --suffix=ColorEcho)"
+    echo "#!/usr/bin/env ${shell}" > "${tempDist}"
 
-    cat << SH_ECHO >> "${newDist}"
+    cat << SH_ECHO >> "${tempDist}"
 
 # ColorEchoForShell
 # https://github.com/PeterDaveHello/ColorEchoForShell
@@ -109,7 +110,7 @@ for shell in sh bash fish ksh zsh; do
 SH_ECHO
 
     if [ "${shell}" = "sh" ]; then
-      cat << SH_ECHO >> "${newDist}"
+      cat << SH_ECHO >> "${tempDist}"
 if [ "\$(uname)" = "FreeBSD" ]; then
   ECHO="echo -e"
 elif [ "\$(uname)" = "Darwin" ]; then
@@ -147,7 +148,7 @@ SH_ECHO
             fi
             echoFunction="$(printf "%secho%s%s%s%s%s" "${fn}" "${dot}" "${light}" "${style}" "${style2}" "${color}")"
             echoFunctionShuffle="$(printf "%secho%s%s%s%s%s" "${fn}" "${dot}" "${light}" "${style2}" "${style}" "${color}")"
-            if ! ( grep -q "${echoFunction}" "${newDist}" || grep -q "${echoFunctionShuffle}" "${newDist}") ; then
+            if ! ( grep -q "${echoFunction}" "${tempDist}" || grep -q "${echoFunctionShuffle}" "${tempDist}") ; then
               {
                 echo ""
                 printf "%s%s" "${echoFunction}" "${brackets}"
@@ -155,7 +156,7 @@ SH_ECHO
                 echo "${startSym}"
                 echo "  ${echo}"' "\\033['"${finalStyleCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\\033[m"'
                 echo "${endSym}"
-              } >> "${newDist}"
+              } >> "${tempDist}"
             fi
           done
         done
@@ -176,7 +177,7 @@ SH_ECHO
         ;;
     esac
 
-    cat << LOLCAT >> "${newDist}"
+    cat << LOLCAT >> "${tempDist}"
 ${fnName}${startSym}
   ${ifCond}
     echo "\$${para}" | lolcat
@@ -188,11 +189,12 @@ LOLCAT
 
     # echo.Reset to remove color code on output
     fnName="${fn}echo${dot}Reset${brackets}"
-    cat << RESET >> "${newDist}"
+    cat << RESET >> "${tempDist}"
 ${fnName}${startSym}
   echo "\$${para}" | tr -d '[:cntrl:]' | sed -E "s/\\\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs
 ${endSym}
 RESET
+  mv -f "${tempDist}" "${newDist}"
   } &
 done
 
