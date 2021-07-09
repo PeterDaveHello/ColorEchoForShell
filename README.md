@@ -37,7 +37,6 @@ Please note that [certain colors](https://github.com/PeterDaveHello/ColorEchoFor
 
 * echo.Cyan
 * echo.ULCyan
-* echo.LightCyan
 * echo.BoldCyan
 * echo.BoldULCyan
 
@@ -52,12 +51,13 @@ Please note that [certain colors](https://github.com/PeterDaveHello/ColorEchoFor
 ## Supported styles
 
 * Bold as `Bold`
-* Light as `Light`
 * Underline as `UL`
 
 ## Supported colors
 
 * See [color table](https://github.com/PeterDaveHello/ColorEchoForShell/blob/master/color%20table.txt)
+
+* For the standard color(coded in range 0~7), it'll has a light version of the color, just use the `Light` keyword before the color, for example: `LightYellow`.
 
 ## Notes
 
