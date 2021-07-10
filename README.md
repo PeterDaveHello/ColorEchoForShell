@@ -31,7 +31,7 @@ Please note that [certain colors](https://github.com/PeterDaveHello/ColorEchoFor
 
 ## Usage
 
-* echo.`StyleColor` (if you are using `ksh`/`sh`, there is no `.` dot symbol)
+* echo.`StyleColor` (if you are using `ksh`/`sh`, there is no `.` dot symbol), you can combine at most two styles together, the order of the style doesn't matter.
 
 ### Examples
 
@@ -39,6 +39,7 @@ Please note that [certain colors](https://github.com/PeterDaveHello/ColorEchoFor
 * echo.ULCyan
 * echo.BoldCyan
 * echo.BoldULCyan
+* echo.ULBoldCyan
 
 ## Supported shells
 

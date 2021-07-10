@@ -147,8 +147,7 @@ SH_ECHO
               finalStyleCode="${styleCode}"
             fi
             echoFunction="$(printf "%secho%s%s%s%s%s" "${fn}" "${dot}" "${light}" "${style}" "${style2}" "${color}")"
-            echoFunctionShuffle="$(printf "%secho%s%s%s%s%s" "${fn}" "${dot}" "${light}" "${style2}" "${style}" "${color}")"
-            if ! ( grep -q "${echoFunction}" "${tempDist}" || grep -q "${echoFunctionShuffle}" "${tempDist}") ; then
+            if ! grep -q "${echoFunction}" "${tempDist}"; then
               {
                 echo ""
                 printf "%s%s" "${echoFunction}" "${brackets}"
