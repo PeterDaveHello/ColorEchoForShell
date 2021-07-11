@@ -128,18 +128,24 @@ SH_ECHO
         else
           code=9
         fi
-        # style like bold, underline
-        for style in "" "Bold" "UL"; do
+        # style like bold, italic, underline, blinking, strikethrough
+        for style in "" "Bold" "I" "UL" "BL" "ST"; do
           case "${style}" in
             "Bold") styleCode='1;' ;;
+            "I")    styleCode='3;' ;;
             "UL")   styleCode='4;' ;;
+            "BL")   styleCode='5;' ;;
+            "ST")   styleCode='9;' ;;
             ""|*)   styleCode=     ;;
           esac
-          for style2 in "" "Bold" "UL"; do
+          for style2 in "" "Bold" "I" "UL" "BL" "ST"; do
             if [ "${style}" != "${style2}" ]; then
               case "${style2}" in
                 "Bold") finalStyleCode="${styleCode}1;"  ;;
+                "I")    finalStyleCode="${styleCode}3;"  ;;
                 "UL")   finalStyleCode="${styleCode}4;"  ;;
+                "BL")   finalStyleCode="${styleCode}5;"  ;;
+                "ST")   finalStyleCode="${styleCode}9;"  ;;
                 ""|*)   finalStyleCode="${styleCode}"    ;;
               esac
             else

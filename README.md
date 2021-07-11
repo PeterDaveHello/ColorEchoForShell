@@ -36,7 +36,10 @@ Please note that [certain colors](https://github.com/PeterDaveHello/ColorEchoFor
 ### Examples
 
 * echo.Cyan
+* echo.ICyan
 * echo.ULCyan
+* echo.BLCyan
+* echo.STCyan
 * echo.BoldCyan
 * echo.BoldULCyan
 * echo.ULBoldCyan
@@ -52,7 +55,10 @@ Please note that [certain colors](https://github.com/PeterDaveHello/ColorEchoFor
 ## Supported styles
 
 * Bold as `Bold`
+* Italic as `I`
 * Underline as `UL`
+* Blink as `BL`
+* Strikethrough as `ST`
 
 ## Supported colors
 
