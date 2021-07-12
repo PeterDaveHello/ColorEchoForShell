@@ -132,21 +132,21 @@ SH_ECHO
         for style in "" "Bold" "I" "UL" "BL" "ST"; do
           case "${style}" in
             "Bold") styleCode='1;' ;;
-            "I")    styleCode='3;' ;;
-            "UL")   styleCode='4;' ;;
-            "BL")   styleCode='5;' ;;
-            "ST")   styleCode='9;' ;;
-            ""|*)   styleCode=     ;;
+            "I") styleCode='3;' ;;
+            "UL") styleCode='4;' ;;
+            "BL") styleCode='5;' ;;
+            "ST") styleCode='9;' ;;
+            "" | *) styleCode= ;;
           esac
           for style2 in "" "Bold" "I" "UL" "BL" "ST"; do
             if [ "${style}" != "${style2}" ]; then
               case "${style2}" in
-                "Bold") finalStyleCode="${styleCode}1;"  ;;
-                "I")    finalStyleCode="${styleCode}3;"  ;;
-                "UL")   finalStyleCode="${styleCode}4;"  ;;
-                "BL")   finalStyleCode="${styleCode}5;"  ;;
-                "ST")   finalStyleCode="${styleCode}9;"  ;;
-                ""|*)   finalStyleCode="${styleCode}"    ;;
+                "Bold") finalStyleCode="${styleCode}1;" ;;
+                "I") finalStyleCode="${styleCode}3;" ;;
+                "UL") finalStyleCode="${styleCode}4;" ;;
+                "BL") finalStyleCode="${styleCode}5;" ;;
+                "ST") finalStyleCode="${styleCode}9;" ;;
+                "" | *) finalStyleCode="${styleCode}" ;;
               esac
             else
               style2=
@@ -199,7 +199,7 @@ ${fnName}${startSym}
   echo "\$${para}" | tr -d '[:cntrl:]' | sed -E "s/\\\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs
 ${endSym}
 RESET
-  mv -f "${tempDist}" "${newDist}"
+    mv -f "${tempDist}" "${newDist}"
   } &
 done
 
