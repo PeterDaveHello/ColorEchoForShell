@@ -1,6 +1,6 @@
 # ColorEchoForShell
 
-[![Build Status](https://travis-ci.com/PeterDaveHello/ColorEchoForShell.svg?branch=master)](https://travis-ci.com/PeterDaveHello/ColorEchoForShell)
+[![Build Status](https://app.travis-ci.com/PeterDaveHello/ColorEchoForShell.svg?branch=master)](https://app.travis-ci.com/PeterDaveHello/ColorEchoForShell)
 ![License badge](https://img.shields.io/badge/license-GPL%20v2.0-brightgreen.svg)
 
 Make echo colorful with easier method. In [bash](https://www.gnu.org/software/bash/), [sh](https://en.wikipedia.org/wiki/Bourne_shell), [fish](http://fishshell.com/), [ksh](http://www.kornshell.com/) and [zsh](http://www.zsh.org/). Which can help you print debug, warning, error message in shell scripts with meaningful colors, and make the output more readable.
