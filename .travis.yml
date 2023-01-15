@@ -1,5 +1,5 @@
 language: minimal
-dist: xenial
+dist: jammy
 
 git:
   depth: 5
