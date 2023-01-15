@@ -146,11 +146,3 @@ jobs:
       - type fish && fish --version
     script:
       - ./test-scripts/fish
-
-notifications:
-  webhooks:
-    urls:
-      - https://www.travisbuddy.com/
-    on_success: never
-    on_cancel: never
-    on_start: never
