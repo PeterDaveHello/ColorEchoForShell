@@ -101,8 +101,11 @@ jobs:
     osx_image: xcode13.1
     env:
       - task=test-dist-zsh
+    addons:
+      homebrew:
+        packages:
+          - zsh
     before_script:
-      - brew update && brew install zsh
       - type zsh && zsh --version
     script:
       - ./test-scripts/zsh
@@ -111,8 +114,11 @@ jobs:
     osx_image: xcode13.1
     env:
       - task=test-dist-ksh
+    addons:
+      homebrew:
+        packages:
+          - ksh
     before_script:
-      - brew update && brew install ksh
       - type ksh && ksh --version || printf ""
     script:
       - ./test-scripts/ksh
@@ -130,8 +136,11 @@ jobs:
     osx_image: xcode13.1
     env:
       - task=test-dist-bash-brew-install
+    addons:
+      homebrew:
+        packages:
+          - bash
     before_script:
-      - brew update && brew install bash
       - export PATH="/usr/local/bin:$PATH"
       - type bash && bash --version
     script:
@@ -141,8 +150,11 @@ jobs:
     osx_image: xcode13.1
     env:
       - task=test-dist-fish
+    addons:
+      homebrew:
+        packages:
+          - fish
     before_script:
-      - brew update && brew install fish
       - type fish && fish --version
     script:
       - ./test-scripts/fish
