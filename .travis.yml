@@ -98,7 +98,7 @@ jobs:
 # test all echo functions on difference shell(except sh, which is actually bash) on Mac
   - stage: macOS runtime test
     os: osx
-    osx_image: xcode12.2
+    osx_image: xcode13.1
     env:
       - task=test-dist-zsh
     before_script:
@@ -108,7 +108,7 @@ jobs:
       - ./test-scripts/zsh
   - stage: macOS runtime test
     os: osx
-    osx_image: xcode12.2
+    osx_image: xcode13.1
     env:
       - task=test-dist-ksh
     before_script:
@@ -118,7 +118,7 @@ jobs:
       - ./test-scripts/ksh
   - stage: macOS runtime test
     os: osx
-    osx_image: xcode12.2
+    osx_image: xcode13.1
     env:
       - task=test-dist-bash-builtin
     before_script:
@@ -127,7 +127,7 @@ jobs:
       - ./test-scripts/bash
   - stage: macOS runtime test
     os: osx
-    osx_image: xcode12.2
+    osx_image: xcode13.1
     env:
       - task=test-dist-bash-brew-install
     before_script:
@@ -138,7 +138,7 @@ jobs:
       - ./test-scripts/bash
   - stage: macOS runtime test
     os: osx
-    osx_image: xcode12.2
+    osx_image: xcode13.1
     env:
       - task=test-dist-fish
     before_script:
