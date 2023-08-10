@@ -40,6 +40,13 @@ jobs:
       - echint
   - stage: Static tests
     env:
+      - task=markdownlint
+    services:
+      - docker
+    script:
+      - docker run -it --rm -v "$(pwd)":/md peterdavehello/markdownlint markdownlint '**/*.md'
+  - stage: Static tests
+    env:
       - task=shfmt
     services:
       - docker
