@@ -3,74 +3,108 @@
 [![Build Status](https://app.travis-ci.com/PeterDaveHello/ColorEchoForShell.svg?branch=master)](https://app.travis-ci.com/PeterDaveHello/ColorEchoForShell)
 ![License badge](https://img.shields.io/badge/license-GPL%20v2.0-brightgreen.svg)
 
-Make echo colorful with easier method. In [bash](https://www.gnu.org/software/bash/), [sh](https://en.wikipedia.org/wiki/Bourne_shell), [fish](http://fishshell.com/), [ksh](http://www.kornshell.com/) and [zsh](http://www.zsh.org/). Which can help you print debug, warning, error message in shell scripts with meaningful colors, and make the output more readable.
+**ColorEchoForShell** brings life to your shell scripts by making text output colorful and meaningful. Whether you're debugging, displaying warnings, or showcasing errors, ColorEchoForShell enhances readability and helps you quickly identify messages in various shell environments.
 
-Please note that [certain colors](https://github.com/PeterDaveHello/ColorEchoForShell/blob/master/color%20table.txt#L9-L12) will really depend on the environment, different terminal may have different behavior, terminal multiplexer like tmux could also affect the result, especially those color not coded in range 0~7, might have unexpected result with styling. My demo is under a terminal called [Terminator](http://gnometerminator.blogspot.com/p/introduction.html), you can simply install it via apt, yum, pkg or other package manager. Actually, all the colors display depend on the environment setting, but I just name/define name by the most common cases I know by far.
+## Quick Start
 
-## MENU
+1. Download the appropriate script for your shell (e.g., bash, sh, fish, ksh, zsh).
 
-* [`MENU`](#menu)
-* [`Installation`](#installation)
-* [`Usage`](#usage)
-* [`Examples`](#examples)
-* [`Supported shells`](#supported-shells)
-* [`Supported styles`](#supported-styles)
-* [`Supported colors`](#supported-colors)
-* [`Notes`](#notes)
-* [`Screenshot`](#screenshot)
-* [`Demo`](#demo)
-* [`Author`](#author)
+    - For bash, download [dist/ColorEcho.bash](./dist/ColorEcho.bash).
+    - For other shells, choose the corresponding file from the [dist directory](./dist).
+
+2. Source the script in your shell:
+
+    ```bash
+    . ./ColorEcho.bash # For bash
+    ```
+
+    Replace `ColorEcho.bash` with the appropriate filename for your shell.
+
+3. Try a colorful echo:
+
+    ```bash
+    echo.Cyan "Hello, colorful world!"
+    ```
+
+## Features
+
+- **Versatile Compatibility**: Works with [bash](https://www.gnu.org/software/bash/), [sh](https://en.wikipedia.org/wiki/Bourne_shell), [fish](http://fishshell.com/), [ksh](http://www.kornshell.com/), and [zsh](http://www.zsh.org/).
+- **Easy to Use**: Simple syntax for applying styles and colors.
+- **Customizable**: Supports various styles including bold, italic, underline, blink, and strikethrough.
+- **Environment-Dependent Colors**: Please note that [certain colors](./color%20table.txt#L9-L12) may vary depending on the terminal and environment settings.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Examples](#examples)
+- [Supported Shells](#supported-shells)
+- [Supported Styles](#supported-styles)
+- [Supported Colors](#supported-colors)
+- [Additional Features](#additional-features)
+- [Community Contribution](#community-contribution)
+- [Screenshots](#screenshots)
+- [Demo](#demo)
+- [License](#license)
+- [Author](#author)
 
 ## Installation
 
-* Download the script, choice the one for your shell by its extension in the filename.
-  * For example [dist/ColorEcho.bash](https://cdn.rawgit.com/PeterDaveHello/ColorEchoForShell/v0.0.7/dist/ColorEcho.bash) for bash.
-* Add a line to include the script in your shell rc or run it directly:
+To utilize ColorEchoForShell in your shell scripts, first download the appropriate script for your specific shell from the [dist directory](./dist). Then, include the ColorEchoForShell script at the beginning of your script by sourcing it:
 
-`. ./ColorEcho.bash`
+```bash
+source ./ColorEcho.bash
+```
+
+Replace `./ColorEcho.bash` with the relative path to the downloaded ColorEchoForShell script.
+
+This inclusion will enable all the features of ColorEchoForShell within your script.
 
 ## Usage
 
-* echo.`StyleColor` (if you are using `ksh`/`sh`, there is no `.` dot symbol), you can combine at most two styles together, the order of the style doesn't matter.
+Use the `echo.StyleColor` syntax to print colorful text. In `ksh`/`sh`, omit the `.` dot symbol. You can combine up to two styles, and the order doesn't matter.
 
 ### Examples
 
-* echo.Cyan
-* echo.ICyan
-* echo.ULCyan
-* echo.BLCyan
-* echo.STCyan
-* echo.BoldCyan
-* echo.BoldULCyan
-* echo.ULBoldCyan
+- `echo.Cyan`: Prints text in cyan color.
+- `echo.ICyan`: Prints text in italic cyan.
+- `echo.ULCyan`: Prints text in underline cyan.
+- `echo.BLCyan`: Prints text in blinking cyan.
+- `echo.STCyan`: Prints text with strikethrough in cyan.
+- `echo.BoldCyan`: Prints text in bold cyan.
+- `echo.BoldULCyan`: Prints text in bold underline cyan.
+- `echo.ULBoldCyan`: Prints text in underline bold cyan.
 
-## Supported shells
+## Supported Shells
 
-* [Bourne shell (sh)](https://en.wikipedia.org/wiki/Bourne_shell)
-* [Bourne-Again shell (bash)](https://www.gnu.org/software/bash/)
-* [Z shell (Zsh)](http://zsh.sourceforge.net/)
-* [Korn shell (ksh)](http://www.kornshell.org/)
-* [Friendly interactive shell (fish)](http://fishshell.com/)
+- [Bourne shell (sh)](https://en.wikipedia.org/wiki/Bourne_shell)
+- [Bourne-Again shell (bash)](https://www.gnu.org/software/bash/)
+- [Z shell (Zsh)](http://zsh.sourceforge.net/)
+- [Korn shell (ksh)](http://www.kornshell.org/)
+- [Friendly interactive shell (fish)](http://fishshell.com/)
 
-## Supported styles
+## Supported Styles
 
-* Bold as `Bold`
-* Italic as `I`
-* Underline as `UL`
-* Blink as `BL`
-* Strikethrough as `ST`
+- Bold: `Bold`
+- Italic: `I`
+- Underline: `UL`
+- Blink: `BL`
+- Strikethrough: `ST`
 
-## Supported colors
+## Supported Colors
 
-* See [color table](https://github.com/PeterDaveHello/ColorEchoForShell/blob/master/color%20table.txt)
+- Refer to the [color table](./color%20table.txt).
+- Use the `Light` keyword for lighter versions of standard colors (coded in range 0~7), e.g., `LightYellow`.
 
-* For the standard color(coded in range 0~7), it'll has a light version of the color, just use the `Light` keyword before the color, for example: `LightYellow`.
+## Additional Features
 
-## Notes
+- **Rainbow Output**: If you have [lolcat](https://github.com/busyloop/lolcat), try `echo.Rainbow`.
 
-* If you have [lolcat](https://github.com/busyloop/lolcat), you can also try `echo.Rainbow`.
+## Community Contribution
 
-## Screenshot
+We welcome contributions, bug reports, and suggestions. Feel free to open an issue or submit a pull request.
+
+## Screenshots
 
 ![Screenshot](Demo.png)
 
@@ -84,4 +118,4 @@ GPL-2.0 (GNU GENERAL PUBLIC LICENSE Version 2)
 
 ## Author
 
-[Peter Dave Hello](https://www.peterdavehello.org/), [@Twitter](https://twitter.com/PeterDaveHello), [@GitHub](https://github.com/PeterDaveHello)
+[Peter Dave Hello](https://www.peterdavehello.org/), [@Twitter](https://twitter.com/PeterDaveHello), [@GitHub](https://github.com/PeterDaveHello), [@GitLab](https://gitlab.com/PeterDaveHello)
