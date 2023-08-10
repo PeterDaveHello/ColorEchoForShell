@@ -31,7 +31,7 @@ jobs:
   - stage: Static tests
     language: node_js
     node_js:
-      - "8"
+      - "18"
     env:
       - task=editorconfig-check
     install:
