@@ -30,7 +30,7 @@
 
 - **Versatile Compatibility**: Works with [bash](https://www.gnu.org/software/bash/), [sh](https://en.wikipedia.org/wiki/Bourne_shell), [fish](http://fishshell.com/), [ksh](http://www.kornshell.com/), and [zsh](http://www.zsh.org/).
 - **Easy to Use**: Simple syntax for applying styles and colors.
-- **Customizable**: Supports various styles including bold, italic, underline, blink, and strikethrough.
+- **Customizable**: Supports various styles, including bold, italic, underline, blink, and strikethrough.
 - **Environment-Dependent Colors**: Please note that [certain colors](./color%20table.txt#L9-L12) may vary depending on the terminal and environment settings.
 
 ## Table of Contents
@@ -50,7 +50,7 @@
 
 ## Installation
 
-To utilize ColorEchoForShell in your shell scripts, first download the appropriate script for your specific shell from the [dist directory](./dist). Then, include the ColorEchoForShell script at the beginning of your script by sourcing it:
+To utilize ColorEchoForShell in your shell scripts, download the appropriate script for your specific shell from the [dist directory](./dist). Then, include the ColorEchoForShell script at the beginning of your script by sourcing it:
 
 ```bash
 source ./ColorEcho.bash
@@ -62,7 +62,7 @@ This inclusion will enable all the features of ColorEchoForShell within your scr
 
 ## Usage
 
-Use the `echo.StyleColor` syntax to print colorful text. In `ksh`/`sh`, omit the `.` dot symbol. You can combine up to two styles, and the order doesn't matter.
+Use the `echo.StyleColor` syntax to print colorful text. In `ksh`/`sh`, omit the `.` dot symbol. You can combine up to two styles; the order doesn't matter.
 
 ### Examples
 
