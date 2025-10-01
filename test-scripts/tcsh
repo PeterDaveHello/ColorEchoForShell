@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+dir="$(cd "$(dirname "$0")" && pwd)"
+script="${dir}/../dist/ColorEcho.tcsh"
+
+
+{
+  echo "source \"${script}\""
+  awk '/^alias +echo/ {print $2}' "${script}" | while IFS= read -r x; do
+    echo "${x} \"${x}\""
+  done
+} | tcsh

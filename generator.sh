@@ -29,7 +29,7 @@ fi
 
 echo.BoldGreen "ColorEcho generator start!"
 
-for shell in sh bash fish ksh zsh; do
+for shell in sh bash fish ksh tcsh zsh; do
   {
     echo.BoldYellow "Generating ColorEcho for ${shell} shell ..."
     # shell specify configs and tricks
@@ -81,6 +81,24 @@ for shell in sh bash fish ksh zsh; do
         endSym='
 end'
         para='$argv'
+        ;;
+      "tcsh")
+        # tcsh does not support function declaration
+        # -> we'll use alias instead
+        fn='alias '
+        dot='.'
+        echo='echo'
+        escape='\'
+        # tcsh cannot put if, then, else, endif in the same line
+        # -> use && and || operators instead
+        if=
+        then=' && '
+        else=' || '
+        endIf=
+        brackets=
+        startSym=" '"
+        endSym="'"
+        para='\!*'
         ;;
       "sh")
         fn=
@@ -199,6 +217,9 @@ SH_ECHO
       "ksh")
         ifCond='command -v lolcat 2> /dev/null >&2'
         ;;
+      "tcsh")
+        ifCond='which lolcat >& /dev/null'
+        ;;
       *)
         ifCond='command -v lolcat > /dev/null 2>&1'
         ;;
@@ -211,7 +232,7 @@ LOLCAT
     # echo.Reset to remove color code on output
     fnName="${fn}echo${dot}Reset${brackets}"
     cat << RESET >> "${tempDist}"
-${fnName}${startSym}echo "${para}" | tr -d '[:cntrl:]' | sed -E "s/${escape//\//\/\/}[((;)?[0-9]{1,3}){0,3}m//g" | xargs${endSym}
+${fnName}${startSym}echo "${para}" | tr -d \[\:cntrl\:\] | sed -E "s/${escape//\//\/\/}[((;)?[0-9]{1,3}){0,3}m//g" | xargs${endSym}
 RESET
     mv -f "${tempDist}" "${newDist}"
   } &
