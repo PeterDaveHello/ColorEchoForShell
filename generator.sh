@@ -43,11 +43,11 @@ for shell in sh bash fish ksh zsh; do
         else='; else '
         endIf='; fi'
         brackets='()'
-        para='*'
         startSym=' {
   '
         endSym='
 }'
+        para='$*'
         ;;
       "ksh")
         fn='function '
@@ -58,11 +58,11 @@ for shell in sh bash fish ksh zsh; do
         else='; else '
         endIf='; fi'
         brackets=
-        para='*'
         startSym=' {
   '
         endSym='
 }'
+        para='$*'
         ;;
       "fish")
         fn='function '
@@ -73,11 +73,11 @@ for shell in sh bash fish ksh zsh; do
         else='; else; '
         endIf='; end'
         brackets=
-        para='argv'
         startSym='
   '
         endSym='
 end'
+        para='$argv'
         ;;
       "sh")
         fn=
@@ -89,11 +89,11 @@ end'
         else='; else '
         endIf='; fi'
         brackets='()'
-        para='*'
         startSym=' {
   '
         endSym='
 }'
+        para='$*'
         ;;
     esac
 
@@ -178,7 +178,7 @@ SH_ECHO
                 echo ""
                 printf "%s%s" "${echoFunction}" "${brackets}"
                 # write the code down
-                echo "${startSym}${echo}"' "\\033['"${finalStyleCode}${code}${colorCode}"'m$'"${para}"'\\033[m"'"${endSym}"
+                echo "${startSym}${echo}"' "\\033['"${finalStyleCode}${code}${colorCode}m${para}"'\\033[m"'"${endSym}"
               } >> "${tempDist}"
             fi
           done
@@ -201,13 +201,13 @@ SH_ECHO
     esac
 
     cat << LOLCAT >> "${tempDist}"
-${fnName}${startSym}${if}${ifCond}${then}echo "\$${para}" | lolcat${else}echo "\$${para}"${endIf}${endSym}
+${fnName}${startSym}${if}${ifCond}${then}echo "${para}" | lolcat${else}echo "${para}"${endIf}${endSym}
 LOLCAT
 
     # echo.Reset to remove color code on output
     fnName="${fn}echo${dot}Reset${brackets}"
     cat << RESET >> "${tempDist}"
-${fnName}${startSym}echo "\$${para}" | tr -d '[:cntrl:]' | sed -E "s/\\\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs${endSym}
+${fnName}${startSym}echo "${para}" | tr -d '[:cntrl:]' | sed -E "s/\\\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs${endSym}
 RESET
     mv -f "${tempDist}" "${newDist}"
   } &
