@@ -2515,11 +2515,7 @@ function echo.LightSTBLBrown
   echo -e "\\033[9;5;9;38;5;52m$argv\\033[m"
 end
 function echo.Rainbow
-  if command -v lolcat > /dev/null
-    echo "$argv" | lolcat
-  else
-    echo "$argv"
-  end
+  if command -v lolcat > /dev/null; echo "$argv" | lolcat; else; echo "$argv"; end
 end
 function echo.Reset
   echo "$argv" | tr -d '[:cntrl:]' | sed -E "s/\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs

@@ -38,7 +38,10 @@ for shell in sh bash fish ksh zsh; do
         fn='function '
         dot='.'
         echo='echo -e'
-        endIf='fi'
+        if='if '
+        then='; then '
+        else='; else '
+        endIf='; fi'
         brackets='()'
         para='*'
         startSym=' {
@@ -50,7 +53,10 @@ for shell in sh bash fish ksh zsh; do
         fn='function '
         dot=
         echo='echo -e'
-        endIf='fi'
+        if='if '
+        then='; then '
+        else='; else '
+        endIf='; fi'
         brackets=
         para='*'
         startSym=' {
@@ -62,7 +68,10 @@ for shell in sh bash fish ksh zsh; do
         fn='function '
         dot='.'
         echo='echo -e'
-        endIf='end'
+        if='if '
+        then='; '
+        else='; else; '
+        endIf='; end'
         brackets=
         para='argv'
         startSym='
@@ -75,7 +84,10 @@ end'
         dot=
         # shellcheck disable=SC2016
         echo='$ECHO'
-        endIf='fi'
+        if='if '
+        then='; then '
+        else='; else '
+        endIf='; fi'
         brackets='()'
         para='*'
         startSym=' {
@@ -178,22 +190,18 @@ SH_ECHO
     fnName="${fn}echo${dot}Rainbow${brackets}"
     case "${shell}" in
       "fish")
-        ifCond="if command -v lolcat > /dev/null"
+        ifCond='command -v lolcat > /dev/null'
         ;;
       "ksh")
-        ifCond='if command -v lolcat 2> /dev/null >&2; then'
+        ifCond='command -v lolcat 2> /dev/null >&2'
         ;;
       *)
-        ifCond='if command -v lolcat > /dev/null 2>&1; then'
+        ifCond='command -v lolcat > /dev/null 2>&1'
         ;;
     esac
 
     cat << LOLCAT >> "${tempDist}"
-${fnName}${startSym}${ifCond}
-    echo "\$${para}" | lolcat
-  else
-    echo "\$${para}"
-  ${endIf}${endSym}
+${fnName}${startSym}${if}${ifCond}${then}echo "\$${para}" | lolcat${else}echo "\$${para}"${endIf}${endSym}
 LOLCAT
 
     # echo.Reset to remove color code on output
