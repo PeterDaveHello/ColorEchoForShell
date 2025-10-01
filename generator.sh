@@ -38,42 +38,50 @@ for shell in sh bash fish ksh zsh; do
         fn='function '
         dot='.'
         echo='echo -e'
-        startSym=' {'
-        endSym='}'
         endIf='fi'
         brackets='()'
         para='*'
+        startSym=' {
+  '
+        endSym='
+}'
         ;;
       "ksh")
         fn='function '
         dot=
         echo='echo -e'
-        startSym=' {'
-        endSym='}'
         endIf='fi'
         brackets=
         para='*'
+        startSym=' {
+  '
+        endSym='
+}'
         ;;
       "fish")
         fn='function '
         dot='.'
         echo='echo -e'
-        startSym=
-        endSym='end'
         endIf='end'
         brackets=
         para='argv'
+        startSym='
+  '
+        endSym='
+end'
         ;;
       "sh")
         fn=
         dot=
         # shellcheck disable=SC2016
         echo='$ECHO'
-        startSym=' {'
-        endSym='}'
         endIf='fi'
         brackets='()'
         para='*'
+        startSym=' {
+  '
+        endSym='
+}'
         ;;
     esac
 
@@ -158,9 +166,7 @@ SH_ECHO
                 echo ""
                 printf "%s%s" "${echoFunction}" "${brackets}"
                 # write the code down
-                echo "${startSym}"
-                echo "  ${echo}"' "\\033['"${finalStyleCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\\033[m"'
-                echo "${endSym}"
+                echo "${startSym}${echo}"' "\\033['"${finalStyleCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\\033[m"'"${endSym}"
               } >> "${tempDist}"
             fi
           done
@@ -183,21 +189,17 @@ SH_ECHO
     esac
 
     cat << LOLCAT >> "${tempDist}"
-${fnName}${startSym}
-  ${ifCond}
+${fnName}${startSym}${ifCond}
     echo "\$${para}" | lolcat
   else
     echo "\$${para}"
-  ${endIf}
-${endSym}
+  ${endIf}${endSym}
 LOLCAT
 
     # echo.Reset to remove color code on output
     fnName="${fn}echo${dot}Reset${brackets}"
     cat << RESET >> "${tempDist}"
-${fnName}${startSym}
-  echo "\$${para}" | tr -d '[:cntrl:]' | sed -E "s/\\\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs
-${endSym}
+${fnName}${startSym}echo "\$${para}" | tr -d '[:cntrl:]' | sed -E "s/\\\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs${endSym}
 RESET
     mv -f "${tempDist}" "${newDist}"
   } &
