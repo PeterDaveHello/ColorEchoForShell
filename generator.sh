@@ -140,7 +140,7 @@ else
 fi
 SH_ECHO
     fi
-    awk '{print $1}' "${table}" | while IFS= read -r color; do
+    cat "${table}" | while read -r color colorCode; do
       # light or not
       for light in "" "Light"; do
         if [ "${light}" = "" ]; then
@@ -178,7 +178,7 @@ SH_ECHO
                 echo ""
                 printf "%s%s" "${echoFunction}" "${brackets}"
                 # write the code down
-                echo "${startSym}${echo}"' "\\033['"${finalStyleCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\\033[m"'"${endSym}"
+                echo "${startSym}${echo}"' "\\033['"${finalStyleCode}${code}${colorCode}"'m$'"${para}"'\\033[m"'"${endSym}"
               } >> "${tempDist}"
             fi
           done
