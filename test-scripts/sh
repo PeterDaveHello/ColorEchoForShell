@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 set -e
-dir="$(cd "$(dirname "$_")" && pwd)"
+dir="$(cd "$(dirname "$0")" && pwd)"
 script="${dir}/../dist/ColorEcho.sh"
 . "${script}"
 
