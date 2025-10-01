@@ -38,6 +38,7 @@ for shell in sh bash fish ksh zsh; do
         fn='function '
         dot='.'
         echo='echo -e'
+        escape='\\'
         if='if '
         then='; then '
         else='; else '
@@ -53,6 +54,7 @@ for shell in sh bash fish ksh zsh; do
         fn='function '
         dot=
         echo='echo -e'
+        escape='\\'
         if='if '
         then='; then '
         else='; else '
@@ -68,6 +70,7 @@ for shell in sh bash fish ksh zsh; do
         fn='function '
         dot='.'
         echo='echo -e'
+        escape='\\'
         if='if '
         then='; '
         else='; else; '
@@ -84,6 +87,7 @@ end'
         dot=
         # shellcheck disable=SC2016
         echo='$ECHO'
+        escape='\\'
         if='if '
         then='; then '
         else='; else '
@@ -178,7 +182,7 @@ SH_ECHO
                 echo ""
                 printf "%s%s" "${echoFunction}" "${brackets}"
                 # write the code down
-                echo "${startSym}${echo}"' "\\033['"${finalStyleCode}${code}${colorCode}m${para}"'\\033[m"'"${endSym}"
+                echo "${startSym}${echo} "'"'"${escape}033[${finalStyleCode}${code}${colorCode}m${para}${escape}033[m"'"'"${endSym}"
               } >> "${tempDist}"
             fi
           done
@@ -207,7 +211,7 @@ LOLCAT
     # echo.Reset to remove color code on output
     fnName="${fn}echo${dot}Reset${brackets}"
     cat << RESET >> "${tempDist}"
-${fnName}${startSym}echo "${para}" | tr -d '[:cntrl:]' | sed -E "s/\\\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs${endSym}
+${fnName}${startSym}echo "${para}" | tr -d '[:cntrl:]' | sed -E "s/${escape//\//\/\/}[((;)?[0-9]{1,3}){0,3}m//g" | xargs${endSym}
 RESET
     mv -f "${tempDist}" "${newDist}"
   } &
