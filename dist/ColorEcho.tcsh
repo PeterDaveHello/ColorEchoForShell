@@ -1267,4 +1267,4 @@ alias echo.LightSTULBrown 'echo "\033[9;4;9;38;5;52m\!*\033[m"'
 
 alias echo.LightSTBLBrown 'echo "\033[9;5;9;38;5;52m\!*\033[m"'
 alias echo.Rainbow 'which lolcat >& /dev/null && echo "\!*" | lolcat || echo "\!*"'
-alias echo.Reset 'echo "\!*" | tr -d \[\:cntrl\:\] | sed -E "s/\[((;)?[0-9]{1,3}){0,3}m//g" | xargs'
+alias echo.Reset 'echo "\!*" | tr -d \[:cntrl:\] | sed -E "s/\[((;)?[0-9]{1,3}){0,3}m//g" | xargs'

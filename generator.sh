@@ -213,15 +213,21 @@ SH_ECHO
     case "${shell}" in
       "fish")
         ifCond='command -v lolcat > /dev/null'
+        trCntrl="'[:cntrl:]'"
         ;;
       "ksh")
         ifCond='command -v lolcat 2> /dev/null >&2'
+        trCntrl="'[:cntrl:]'"
         ;;
       "tcsh")
         ifCond='which lolcat >& /dev/null'
+        # tcsh uses aliases instead of functions
+        # -> remove ' and replace [ and ] with quoted chars
+        trCntrl='\[:cntrl:\]'
         ;;
       *)
         ifCond='command -v lolcat > /dev/null 2>&1'
+        trCntrl="'[:cntrl:]'"
         ;;
     esac
 
@@ -232,7 +238,7 @@ LOLCAT
     # echo.Reset to remove color code on output
     fnName="${fn}echo${dot}Reset${brackets}"
     cat << RESET >> "${tempDist}"
-${fnName}${startSym}echo "${para}" | tr -d \[\:cntrl\:\] | sed -E "s/${escape//\//\/\/}[((;)?[0-9]{1,3}){0,3}m//g" | xargs${endSym}
+${fnName}${startSym}echo "${para}" | tr -d ${trCntrl} | sed -E "s/${escape//\//\/\/}[((;)?[0-9]{1,3}){0,3}m//g" | xargs${endSym}
 RESET
     mv -f "${tempDist}" "${newDist}"
   } &

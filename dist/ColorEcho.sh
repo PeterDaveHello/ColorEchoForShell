@@ -2525,5 +2525,5 @@ echoRainbow() {
   if command -v lolcat > /dev/null 2>&1; then echo "$*" | lolcat; else echo "$*"; fi
 }
 echoReset() {
-  echo "$*" | tr -d \[\:cntrl\:\] | sed -E "s/\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs
+  echo "$*" | tr -d '[:cntrl:]' | sed -E "s/\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs
 }
