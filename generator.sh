@@ -238,7 +238,7 @@ LOLCAT
     # echo.Reset to remove color code on output
     fnName="${fn}echo${dot}Reset${brackets}"
     cat << RESET >> "${tempDist}"
-${fnName}${startSym}echo "${para}" | tr -d ${trCntrl} | sed -E "s/${escape//\//\/\/}[((;)?[0-9]{1,3}){0,3}m//g" | xargs${endSym}
+${fnName}${startSym}echo "${para}" | tr -d ${trCntrl} | sed -E "s/${escape}[((;)?[0-9]{1,3}){0,3}m//g" | xargs${endSym}
 RESET
     mv -f "${tempDist}" "${newDist}"
   } &
