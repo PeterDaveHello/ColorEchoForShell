@@ -162,7 +162,7 @@ else
 fi
 SH_ECHO
     fi
-    cat "${table}" | while read -r color colorCode; do
+    while read -r color colorCode; do
       # light or not
       for light in "" "Light"; do
         if [ "${light}" = "" ]; then
@@ -206,7 +206,7 @@ SH_ECHO
           done
         done
       done
-    done
+    done < "${table}"
 
     # rainbow output relys on lolcat
     fnName="${fn}echo${dot}Rainbow${brackets}"
