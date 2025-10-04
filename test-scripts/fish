@@ -7,3 +7,5 @@ set script "$dir/../dist/ColorEcho.fish"
 for x in (awk '/^function +echo/ {print $2}' "$script")
   eval $x "$x"
 end
+
+echo.Reset "$( echo.Red "Red and \033[32m'green'" )"

@@ -8,3 +8,5 @@ script="${dir}/../dist/ColorEcho.bash"
 awk '/^function +echo/ {print $2}' "${script}" | sed 's/()//g' | while IFS= read -r x; do
   ${x} "${x}"
 done
+
+echo.Reset "$( echo.Red "Red and \033[32m'green'" )"

@@ -8,3 +8,5 @@ script="${dir}/../dist/ColorEcho.sh"
 grep -E "echo[a-zA-Z]+()" "${script}" | sed -e 's/()//g' -e 's/ {$//g' | while IFS= read -r x; do
   ${x} "${x}"
 done
+
+echoReset "$( echoRed "Red and \033[32m'green'" )"

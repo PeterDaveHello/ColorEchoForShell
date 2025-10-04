@@ -10,4 +10,5 @@ script="${dir}/../dist/ColorEcho.tcsh"
   awk '/^alias +echo/ {print $2}' "${script}" | while IFS= read -r x; do
     echo "${x} \"${x}\""
   done
+  echo 'echo.Reset `echo.Red "Red and \033[32m\x27green\x27"`'
 } | tcsh
