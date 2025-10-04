@@ -2522,12 +2522,8 @@ echoLightSTBLBrown() {
   $ECHO "\\033[9;5;9;38;5;52m$*\\033[m"
 }
 echoRainbow() {
-  if command -v lolcat > /dev/null 2>&1; then
-    echo "$*" | lolcat
-  else
-    echo "$*"
-  fi
+  if command -v lolcat > /dev/null 2>&1; then echo "$*" | lolcat; else echo "$*"; fi
 }
 echoReset() {
-  echo "$*" | tr -d '[:cntrl:]' | sed -E "s/\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs
+  echo $* | tr -d '[:cntrl:]' | sed -E "s/\\[((;)?[0-9]{1,3}){0,3}m//g"; echo
 }

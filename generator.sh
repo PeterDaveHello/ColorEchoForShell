@@ -29,7 +29,7 @@ fi
 
 echo.BoldGreen "ColorEcho generator start!"
 
-for shell in sh bash fish ksh zsh; do
+for shell in sh bash fish ksh tcsh zsh; do
   {
     echo.BoldYellow "Generating ColorEcho for ${shell} shell ..."
     # shell specify configs and tricks
@@ -38,42 +38,84 @@ for shell in sh bash fish ksh zsh; do
         fn='function '
         dot='.'
         echo='echo -e'
-        startSym=' {'
-        endSym='}'
-        endIf='fi'
+        escape='\\'
+        if='if '
+        then='; then '
+        else='; else '
+        endIf='; fi'
         brackets='()'
-        para='*'
+        startSym=' {
+  '
+        endSym='
+}'
+        para='$*'
         ;;
       "ksh")
         fn='function '
         dot=
         echo='echo -e'
-        startSym=' {'
-        endSym='}'
-        endIf='fi'
+        escape='\\'
+        if='if '
+        then='; then '
+        else='; else '
+        endIf='; fi'
         brackets=
-        para='*'
+        startSym=' {
+  '
+        endSym='
+}'
+        para='$*'
         ;;
       "fish")
         fn='function '
         dot='.'
         echo='echo -e'
-        startSym=
-        endSym='end'
-        endIf='end'
+        escape='\\'
+        if='if '
+        then='; '
+        else='; else; '
+        endIf='; end'
         brackets=
-        para='argv'
+        startSym='
+  '
+        endSym='
+end'
+        para='$argv'
+        ;;
+      "tcsh")
+        # tcsh does not support function declaration
+        # -> we'll use alias instead
+        fn='alias '
+        dot='.'
+        echo='echo'
+        escape='\'
+        # tcsh cannot put if, then, else, endif in the same line
+        # -> use && and || operators instead
+        if=
+        then=' && '
+        else=' || '
+        endIf=
+        brackets=
+        startSym=" '"
+        endSym="'"
+        para='\!*'
         ;;
       "sh")
         fn=
         dot=
         # shellcheck disable=SC2016
         echo='$ECHO'
-        startSym=' {'
-        endSym='}'
-        endIf='fi'
+        escape='\\'
+        if='if '
+        then='; then '
+        else='; else '
+        endIf='; fi'
         brackets='()'
-        para='*'
+        startSym=' {
+  '
+        endSym='
+}'
+        para='$*'
         ;;
     esac
 
@@ -120,7 +162,7 @@ else
 fi
 SH_ECHO
     fi
-    awk '{print $1}' "${table}" | while IFS= read -r color; do
+    while read -r color colorCode; do
       # light or not
       for light in "" "Light"; do
         if [ "${light}" = "" ]; then
@@ -158,46 +200,45 @@ SH_ECHO
                 echo ""
                 printf "%s%s" "${echoFunction}" "${brackets}"
                 # write the code down
-                echo "${startSym}"
-                echo "  ${echo}"' "\\033['"${finalStyleCode}${code}""$(grep "${color}" "${table}" | awk '{print $2}')"'m$'"${para}"'\\033[m"'
-                echo "${endSym}"
+                echo "${startSym}${echo} "'"'"${escape}033[${finalStyleCode}${code}${colorCode}m${para}${escape}033[m"'"'"${endSym}"
               } >> "${tempDist}"
             fi
           done
         done
       done
-    done
+    done < "${table}"
 
     # rainbow output relys on lolcat
     fnName="${fn}echo${dot}Rainbow${brackets}"
     case "${shell}" in
       "fish")
-        ifCond="if command -v lolcat > /dev/null"
+        ifCond='command -v lolcat > /dev/null'
+        trCntrl="'[:cntrl:]'"
         ;;
       "ksh")
-        ifCond='if command -v lolcat 2> /dev/null >&2; then'
+        ifCond='command -v lolcat 2> /dev/null >&2'
+        trCntrl="'[:cntrl:]'"
+        ;;
+      "tcsh")
+        ifCond='which lolcat >& /dev/null'
+        # tcsh uses aliases instead of functions
+        # -> remove ' and replace [ and ] with quoted chars
+        trCntrl='\[:cntrl:\]'
         ;;
       *)
-        ifCond='if command -v lolcat > /dev/null 2>&1; then'
+        ifCond='command -v lolcat > /dev/null 2>&1'
+        trCntrl="'[:cntrl:]'"
         ;;
     esac
 
     cat << LOLCAT >> "${tempDist}"
-${fnName}${startSym}
-  ${ifCond}
-    echo "\$${para}" | lolcat
-  else
-    echo "\$${para}"
-  ${endIf}
-${endSym}
+${fnName}${startSym}${if}${ifCond}${then}echo "${para}" | lolcat${else}echo "${para}"${endIf}${endSym}
 LOLCAT
 
     # echo.Reset to remove color code on output
     fnName="${fn}echo${dot}Reset${brackets}"
     cat << RESET >> "${tempDist}"
-${fnName}${startSym}
-  echo "\$${para}" | tr -d '[:cntrl:]' | sed -E "s/\\\\[((;)?[0-9]{1,3}){0,3}m//g" | xargs
-${endSym}
+${fnName}${startSym}echo ${para} | tr -d ${trCntrl} | sed -E "s/${escape}[((;)?[0-9]{1,3}){0,3}m//g"; echo${endSym}
 RESET
     mv -f "${tempDist}" "${newDist}"
   } &

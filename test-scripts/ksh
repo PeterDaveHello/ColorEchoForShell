@@ -9,3 +9,5 @@ awk '/^function +echo/ {print $2}' "${script}" | while IFS= read -r x
 do
   ${x} "${x}"
 done
+
+echoReset "$( echoRed "Red and \033[32m'green'" )"
